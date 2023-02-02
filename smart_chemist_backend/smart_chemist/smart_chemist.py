@@ -12,19 +12,34 @@ from .mol_utils import read_sdf
 class SmartChemist:
 
     @staticmethod
+    def _check_overshadowed_patterns(matches:list):
+        for match in matches:
+            for submatch in matches:
+                if match["trivial_name"]["name"] == submatch["trivial_name"]["name"]:
+                    continue
+                atoms_match = match["atom_indices"]
+                atoms_submatch = submatch["atom_indices"]
+                n = len(atoms_match)
+                if any(atoms_match == atoms_submatch[i:i + n] for i in range(len(atoms_submatch)-n + 1)):
+                    match["trivial_name"]["group"] = "overshadowed"
+                    break
+
+
+    @staticmethod
     def _match_smarts_patterns(mol: rdkit.Chem.rdchem.Mol):
         matches = []
         # iterate all annotated SMARTS patterns from our database
         for db_row in AnnotatedPattern.objects.all():
             pattern = Chem.MolFromSmarts(db_row.smarts)
-
             if mol.HasSubstructMatch(pattern):
                 hit_atom_indices_list = mol.GetSubstructMatches(pattern)
                 for hit_atom_indices in hit_atom_indices_list:
                     matches.append({'atom_indices': hit_atom_indices,
                                     'trivial_name': {'name': db_row.trivial_name,
-                                                     'smarts': db_row.smarts}
+                                                     'smarts': db_row.smarts,
+                                                     'group': db_row.group}
                                     })
+        SmartChemist._check_overshadowed_patterns(matches)
         return matches
 
     @staticmethod
