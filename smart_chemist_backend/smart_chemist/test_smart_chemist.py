@@ -7,24 +7,6 @@ from .smart_chemist import SmartChemist
 
 class SmartChemistTests(TestCase):
 
-    def test_mol_str_to_annotation_json(self):
-
-        # add some test data to the database for searching
-        anno_pattern = AnnotatedPattern(smarts='c=O', trivial_name='my_name')
-        anno_pattern.save()
-
-        # test SMILES input
-        caffeine_smiles = 'CN1C=NC2=C1C(=O)N(C(=O)N2C)C'
-        json_dict = SmartChemist.mol_str_to_annotation_json(caffeine_smiles, 'smi')
-
-        self.assertEqual(len(json_dict), 2)
-        self.assertIn('svg', json_dict)
-        self.assertIn('matches', json_dict)
-
-        # test wrong file type raises
-        self.assertRaises(ValueError,
-                          SmartChemist.mol_str_to_annotation_json, caffeine_smiles,
-                          'NOTAVALIDEXTENSION')
 
     def test__match_smarts_patterns(self):
         mol = Chem.MolFromSmiles('CN1C=NC2=C1C(=O)N(C(=O)N2C)C')

@@ -1,13 +1,19 @@
+import pathlib
+import string
 from io import StringIO
 
+import os
 import rdkit
 from rdkit import Chem
 from rdkit.Chem import AllChem, Draw
 from rdkit.Chem.Draw import rdMolDraw2D
+import random
 
 from .models import AnnotatedPattern
 from .mol_utils import read_sdf
 
+def random_string_generator(str_size, allowed_chars):
+    return ''.join(random.choice(allowed_chars) for x in range(str_size))
 
 class SmartChemist:
 
@@ -58,31 +64,38 @@ class SmartChemist:
 
         # search the database for annotations of substructures
         db_matches = SmartChemist._match_smarts_patterns(mol)
-
+        if mol.HasProp("_Name"):
+            name = mol.GetProp("_Name")
+        else:
+            name = random_string_generator(10,string.ascii_letters)
+        print(name)
         return {
-            # 'name': mol.GetProp("_Name"),
+            'name': name,
             'svg': SmartChemist._mol_to_image_str(mol, 400, 400),
             'matches': db_matches
         }
 
     @staticmethod
-    def mol_str_to_annotation_json(mol_str: str, file_type: str) -> dict:
-        """Compute SmartChemist annotations for given molstring
+    def handle_string_input(string_input:str):
+        smiles_list = string_input.split(",")
+        final_json = []
+        for x in smiles_list:
+            final_json.append(SmartChemist.mol_to_annotation_json(Chem.MolFromSmiles(x)))
+        return final_json
 
-        :param mol_str: file string of the molecule.
-        :param file_type: file type of the molecule, i.e. smi for smiles or sdf.
-        """
-
-        mol = None
-        if file_type == 'smi':
-            mol = Chem.MolFromSmiles(mol_str)
-        elif file_type == 'sdf':
-            with StringIO(mol_str) as file_handle:
-                mol = next(read_sdf(file_handle), None)
-        else:
-            raise ValueError('Unknown file format')
-
-        if not mol:
-            raise ValueError('RDKit failed to read molecule string')
-
-        return SmartChemist.mol_to_annotation_json(mol)
+    @staticmethod
+    def handle_file_input(file_input:str):
+        if not os.path.exists(file_input):
+            raise RuntimeError("File does not exist")
+        if file_input.endswith(".smi"):
+            suppl = Chem.SmilesMolSupplier(file_input, titleLine=0)
+        elif file_input.endswith(".sdf"):
+            suppl = Chem.SDMolSupplier(file_input)
+        final_json = []
+        for mol in suppl:
+            print("One molecule...")
+            if mol is None:
+                print("didnt work....")
+                continue
+            final_json.append(SmartChemist.mol_to_annotation_json(mol))
+        return final_json

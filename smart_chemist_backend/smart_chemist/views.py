@@ -29,6 +29,8 @@ class SmartChemistView(APIView):
 
         result_json_dict = None
         if 'smiles' in request_data:
-            result_json_dict = SmartChemist.mol_str_to_annotation_json(request_data['smiles'], 'smi')
+            result_json_dict = SmartChemist.handle_string_input(request_data["smiles"])
+        elif 'molecule_file' in request_data:
+            result_json_dict = SmartChemist.handle_file_input(request_data["molecule_file"])
 
-        return JsonResponse(result_json_dict, status=status.HTTP_202_ACCEPTED)
+        return JsonResponse(result_json_dict, status=status.HTTP_202_ACCEPTED, safe=False)
