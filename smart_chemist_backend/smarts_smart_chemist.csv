@@ -3,7 +3,7 @@ SMARTS,trivialname,group
 [#6]#[#6],Acetylene,functional_group
 "[CX3](=O)[OH,O-]",Carboxylic acid,functional_group
 "[#6](=O)-[Cl,Br,I]",Acid*halide,functional_group
-[#6$([#6]-[O;H1])],Alcohol,functional_group
+[#8$([#8X2H1]C)],Alcohol,functional_group
 "[#6;$([#6;H1](=O)[#6]),$([#6;H2]=O)]",Aldehyde,functional_group
 [#6]=[#6]=[#6],Allene,functional_group
 "[#6](=O)-,:[N;H2]",Amide,functional_group
