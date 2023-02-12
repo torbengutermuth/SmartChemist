@@ -13,6 +13,7 @@ from .smart_chemist import SmartChemist
 
 class SmartChemistView(APIView):
     """View for running smart chemist"""
+
     parser_classes = (JSONParser, MultiPartParser, FormParser)
 
     @extend_schema(
@@ -28,9 +29,13 @@ class SmartChemistView(APIView):
         request_data = serializer.validated_data
 
         result_json_dict = None
-        if 'smiles' in request_data:
+        if "smiles" in request_data:
             result_json_dict = SmartChemist.handle_string_input(request_data["smiles"])
-        elif 'molecule_file' in request_data:
-            result_json_dict = SmartChemist.handle_file_input(request_data["molecule_file"])
+        elif "molecule_file" in request_data:
+            result_json_dict = SmartChemist.handle_file_input(
+                request_data["molecule_file"].file, request_data["molecule_file"].name
+            )
 
-        return JsonResponse(result_json_dict, status=status.HTTP_202_ACCEPTED, safe=False)
+        return JsonResponse(
+            result_json_dict, status=status.HTTP_202_ACCEPTED, safe=False
+        )
