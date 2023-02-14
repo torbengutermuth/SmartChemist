@@ -7,7 +7,6 @@ SMARTS,trivialname,group
 [#6H1X3]=O,Aldehyde,functional_group
 [#6]=[#6]=[#6],Allene,functional_group
 [#6!R](=O)[#7X3!R],Amide,functional_group
-[#7H2X3],Amine,functional_group
 [#7+X4H0][#8-],Amine*oxide,functional_group
 "[#6](=O)-,:[#8]-,:C=O",Anhydride,functional_group
 [#6]-[#7]=[#7+]=[#7-],Azide,functional_group
@@ -195,3 +194,6 @@ c1ccccc1,Benzene,cyclic
 C1CCCCC1,Cyclohexane,cyclic
 C1CCCC1,Cyclopentane,cyclic
 [#6H1]=N-[O;H1],Aldoxime,functional_group
+"[#7X3H2$(*[#6]),#7X4+H3$(*[#6])]",Primary Amine,functional_group
+"[#7X3H1$(*([#6])[#6]),#7X4+H2$(*([#6])[#6])]",Secondary Amine,functional_group
+"[#7X3H0$(*([#6])([#6])[#6]),#7X4+H1$(*([#6])([#6])[#6])]",Tertiary Amine,functional_group
