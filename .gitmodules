@@ -1,0 +1,3 @@
+[submodule "smart_chemist_backend/static/smart_chemist_frontend"]
+	path = smart_chemist_backend/static/smart_chemist_frontend
+	url = https://github.com/PatrickPenner/smart_chemist_frontend.git
