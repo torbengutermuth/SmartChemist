@@ -76,8 +76,7 @@ class SmartChemist:
         if mol.HasProp("_Name"):
             name = mol.GetProp("_Name")
         else:
-            name = random_string_generator(10, string.ascii_letters)
-        print(name)
+            name = "No Name"
         return {
             "name": name,
             "svg": SmartChemist._mol_to_image_str(mol, 400, 400),
@@ -89,8 +88,11 @@ class SmartChemist:
         smiles_list = string_input.split(",")
         final_json = []
         for x in smiles_list:
+            mol = Chem.MolFromSmiles(x.strip())
+            if mol is None:
+                continue
             final_json.append(
-                SmartChemist.mol_to_annotation_json(Chem.MolFromSmiles(x))
+                SmartChemist.mol_to_annotation_json(mol)
             )
         return final_json
 
