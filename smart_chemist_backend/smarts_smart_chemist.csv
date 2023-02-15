@@ -209,3 +209,14 @@ C1=CCS(C1)(=O)=O,Sulfolene,cyclic
 [SX4R](=O)(=O)[NX3R],Sultam,functional_group
 [SX4!R](=O)(=O)[NX2!R],Sulfonimide,functional_group
 c1c2ccccc2ccc1,Naphtalene,cyclic
+C1CCC1,Cyclobutane,cyclic
+C1CC1,Cyclopropane,cyclic
+C1CCCCCC1,Cycloheptane,cyclic
+C1CCCCCCC1,Cyclooctane,cyclic
+C1CCCCCCCC1,Cyclononane,cyclic
+C1CCCCCCCCC1,Cyclodecane,cyclic
+C1CCCCCCCCCC1,Cycloundecane,cyclic
+C1CCCCCCCCCCC1,Cyclododecane,cyclic
+c1ccccc1-c2ccccc2,Biphenyl,cyclic
+c1cccc2c(cc1)cc2,Bicyclodecapentaene,cyclic
+c1cccc2cccc2c1,Azulene,cyclic
