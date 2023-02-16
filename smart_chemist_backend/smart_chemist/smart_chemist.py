@@ -18,25 +18,32 @@ def random_string_generator(str_size, allowed_chars):
     return "".join(random.choice(allowed_chars) for x in range(str_size))
 
 
+def check_subset_of_lists(list1, list2):
+    if len(list1) >= len(list2):
+        return False
+    for element in list1:
+        found = False
+        for element2 in list2:
+            if element == element2:
+                found = True
+                break
+        if not found:
+            return False
+    return True
+
 class SmartChemist:
     @staticmethod
     def _check_overshadowed_patterns(matches: list):
         for match in matches:
             for submatch in matches:
-                if match["trivial_name"]["name"] == submatch["trivial_name"]["name"]:
-                    continue
                 atoms_match = match["atom_indices"]
                 atoms_submatch = submatch["atom_indices"]
-                n = len(atoms_match)
-                if any(
-                    atoms_match == atoms_submatch[i : i + n]
-                    for i in range(len(atoms_submatch) - n + 1)
-                ):
+                if check_subset_of_lists(atoms_match, atoms_submatch):
                     match["trivial_name"]["group"] = "overshadowed"
                     break
 
     @staticmethod
-    def _match_smarts_patterns(mol: rdkit.Chem.rdchem.Mol):
+    def _match_smarts_patterns(mol: rdkit.Chem.rdchem.Mol, remove_overshadowed_patterns:bool=False):
         matches = []
         # iterate all annotated SMARTS patterns from our database
         for db_row in AnnotatedPattern.objects.all():
@@ -55,6 +62,8 @@ class SmartChemist:
                         }
                     )
         SmartChemist._check_overshadowed_patterns(matches)
+        if remove_overshadowed_patterns:
+            matches = [x for x in matches if x["trivial_name"]["group"] != "overshadowed"]
         return matches
 
     @staticmethod
