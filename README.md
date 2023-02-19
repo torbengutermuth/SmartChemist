@@ -13,13 +13,13 @@ First, create a virtual environment
 
     python -m venv smartchemist
 
-Then, install the necessary dependencies in requirements.txt
-
-    pip install -r requirements.txt
-
 Activate your virtual environment, in linux this can be done with the following command:
 
     source smartchemist/bin/activate
+
+Then, install the necessary dependencies in requirements.txt
+
+    pip install -r requirements.txt
 
 After taking care of the python dependencies, we have to include the Frontend to easily view the patterns in your molecules.
 The Frontend is included as a submodule inside git and can be activated using the following commands:
@@ -28,9 +28,11 @@ The Frontend is included as a submodule inside git and can be activated using th
     git submodule update
 
 Now, it is time to start the webserver. This can be done in three steps. 
-1. Generate the database necessary for the webserver:
+1. Move into the directory and generate the database necessary for the webserver:
 
+        cd smart_chemist_backend
         python manage.py migrate
+
 2. Add the SMARTS patterns to the database
 
         python add_patterns_to_db.py
