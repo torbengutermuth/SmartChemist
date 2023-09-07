@@ -1,0 +1,7 @@
+# Usage of the SMARTS in these files is prohibited without proper citation/reference to Github and/or Publication
+SMARTS,trivialname,group
+[#6!R](=O)[#7X3],Amide,functional_group
+[#6X3]=[OX1],Carbonyl,functional_group
+"[#7X3H2$(*[#6]),#7X4+H3$(*[#6])]",Primary Amine,functional_group
+"[#7X3H1$(*([#6])[#6]),#7X4+H2$(*([#6])[#6])]",Secondary Amine,functional_group
+"[#7X3H0$(*([#6])([#6])[#6]),#7X4+H1$(*([#6])([#6])[#6])]",Tertiary Amine,functional_group

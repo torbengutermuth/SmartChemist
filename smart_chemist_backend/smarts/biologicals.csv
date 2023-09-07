@@ -1,0 +1,6 @@
+# Usage of the SMARTS in these files is prohibited without proper citation/reference to Github and/or Publication
+SMARTS,trivialname,group
+n1cnc(c2c1ncn2)N,Adenine,biological
+CC(C(=O)O)N,Alanine,biological
+CC(C(=O)[N])N,Alanine-peptide,biological
+[NH2]c1ccccc1,Aniline,biological
