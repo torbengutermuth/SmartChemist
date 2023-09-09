@@ -15,7 +15,7 @@ Activate your virtual environment, in linux this can be done with the following 
 ```bash
 source smartchemist/bin/activate
 ```
-Then, install the necessary dependencies in requirements.txt
+Then, install the necessary dependencies in requirements.txt. Note that [PostgreSQL](https://www.postgresql.org/) must be installed on your system for the backend's database.
 ```bash
 pip install -r requirements.txt
 ```
@@ -48,6 +48,11 @@ python manage.py runserver
 ```
 
 A Frontend is currently being developed but not public yet.
+
+Run the tests for the SMARTS patterns library with:
+```bash
+python -m unittest discover smarts
+```
 
 **Have Fun!**
 
