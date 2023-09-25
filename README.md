@@ -7,20 +7,20 @@ If the match of a substructure is u subset of another (e.g. hydroxyl group in a 
 
 ## Installation
 
-First, create a virtual environment
+As the SmartChemist is not yet published, this repository remains WIP.  
+All SMARTS necessary for setting up the SmartChemist will only be published once the publication is accepted.
+In addition, the FrontEnd is still under development and not yet publicly available. 
+
+To setup a testserver and test it using CURL, please execute the following steps:
+
+First, create and activate a [CONDA](https://docs.conda.io/projects/conda/en/latest/index.html) environment using the environment.yml file.
+
 ```bash
-python -m venv smartchemist
-```
-Activate your virtual environment, in linux this can be done with the following command:
-```bash
-source smartchemist/bin/activate
-```
-Then, install the necessary dependencies in requirements.txt. Note that [PostgreSQL](https://www.postgresql.org/) must be installed on your system for the backend's database.
-```bash
-pip install -r requirements.txt
+conda create env create -f environment.yml
+conda activate your_conda_environment
 ```
 
-Now, it is time to start the webserver. This can be done in three steps. 
+Now, it is time to start setting up the webserver. This can be done in three steps. 
 1. Move into the directory and generate the database necessary for the webserver:
 ```bash
 cd smart_chemist_backend
@@ -32,28 +32,40 @@ python manage.py migrate
 python add_patterns_to_db.py
 ```
 
-4. Open a separate terminal and start the redis server which is needed by celery which we use for distributed task execution.
+4. Start all necessary Software for task execution using the start.sh script.
 ```bash
-redis-server --port 6378
+./start.sh
 ```
 
-5. Open another separate terminal and start the celery worker (note that this is development mode).
-```bash
-celery -A smart_chemist_backend worker -O fair --loglevel=INFO
-```
-
-6. Start the server
+5. Start the server
 ```bash
 python manage.py runserver
 ```
 
-A Frontend is currently being developed but not public yet.
+Now, we can test if the server executes properly which takes another three steps
 
-Run the tests for the SMARTS patterns library with:
+1. Upload the string/file to execute to the webserver
+For a SMILES string:
 ```bash
-python -m unittest discover smarts
+curl -vvv -d 'smiles=S(=O)(=O)(NC(=O)Nc1nc(OC)cc(OC)n1)Cc2c(cccc2)C(=O)OC' localhost:8000/api/names
 ```
+For a file:
+```bash
+curl -vvv -X POST -F molecule_file=@'/path/to/your/file/ligands.sdf' localhost:8000/api/names
+```
+The result should contain a job id like "a7d1ac11-c111-4d4f-a644-b86bd8a5fef8"
 
-**Have Fun!**
+2. Query the job-id for execution status
+```bash
+curl -vvv localhost:8000/jobs/a7d1ac11-c111-4d4f-a644-b86bd8a5fef8/
+```
+There, you can find an output_info id if it successfully finished
 
-If you find any Problems with the Server or the Patterns, feel free to contact me!
+3. Query the output of the successful job
+```bash
+curl -vvv localhost:8000/jobs_output/213/
+```
+The result is a bit tedious to look at, especially for higher numbers of molecules, but it should contain an SVG and a matches dictionary at the end.
+If you see some SMARTS at the end it is probably fine, please be aware that only few SMARTS are in the database and use a working molecule.
+
+There are some tests which will be extended in the coming weeks and automatic CI/CD will be setup using Github.

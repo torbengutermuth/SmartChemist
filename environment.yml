@@ -1,8 +1,8 @@
-name: SMARTSChemist
+name: SmartChemist
 channels:
-  - conda-forge
   - https://conda.anaconda.org/conda-forge/
   - defaults
+  - conda-forge
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
@@ -18,10 +18,10 @@ dependencies:
   - brotli=1.0.9=h166bdaf_8
   - brotli-bin=1.0.9=h166bdaf_8
   - bzip2=1.0.8=h7f98852_4
-  - ca-certificates=2023.5.7=hbcca054_0
+  - ca-certificates=2023.7.22=hbcca054_0
   - cairo=1.16.0=h35add3b_1015
   - celery=5.2.7=pyhd8ed1ab_0
-  - certifi=2023.5.7=pyhd8ed1ab_0
+  - certifi=2023.7.22=pyhd8ed1ab_0
   - click=8.1.3=unix_pyhd8ed1ab_2
   - click-didyoumean=0.3.0=pyhd8ed1ab_0
   - click-plugins=1.1.1=py_0
@@ -43,6 +43,7 @@ dependencies:
   - freetype=2.12.1=hca18f0e_1
   - gettext=0.21.1=h27087fc_0
   - greenlet=2.0.2=py39h3d6467e_1
+  - gunicorn=21.2.0=py39hf3d152e_1
   - icu=72.1=hcb278e6_0
   - importlib-metadata=6.6.0=pyha770c72_0
   - importlib-resources=5.12.0=pyhd8ed1ab_0
@@ -89,7 +90,7 @@ dependencies:
   - ncurses=6.3=h27087fc_1
   - numpy=1.24.3=py39h6183b62_0
   - openjpeg=2.5.0=hfec8fc6_2
-  - openssl=3.1.0=hd590300_3
+  - openssl=3.1.3=hd590300_0
   - packaging=23.1=pyhd8ed1ab_0
   - pandas=2.0.1=py39h40cae4c_1
   - pcre2=10.40=hc3806b6_0
@@ -144,5 +145,5 @@ dependencies:
   - zlib=1.2.13=h166bdaf_4
   - zstd=1.5.2=h3eb15da_6
   - pip:
-    - async-timeout==4.0.2
-    - redis==4.5.5
+      - async-timeout==4.0.2
+      - redis==4.5.5

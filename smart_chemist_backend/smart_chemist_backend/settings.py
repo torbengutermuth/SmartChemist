@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Celery settings
-CELERY_BROKER_URL = 'redis://localhost:6378'
-CELERY_RESULT_BACKEND = 'redis://localhost:6378'
+CELERY_BROKER_URL = 'redis://localhost:8012'
+CELERY_RESULT_BACKEND = 'redis://localhost:8012'
 
 # Application definition
 
@@ -79,12 +79,8 @@ WSGI_APPLICATION = 'smart_chemist_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb2',
-        'USER': 'myuser',
-        'PASSWORD': 'mypass',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
