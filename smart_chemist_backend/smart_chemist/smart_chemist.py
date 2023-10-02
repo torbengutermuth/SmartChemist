@@ -139,16 +139,24 @@ class SmartChemist:
         smiles_list = string_input.split(",")
         final_json = []
         n = 0
+        number_worked = 0
+        number_skipped = 0
+        number_problems = 0
         for x in smiles_list:
             if n > nof_molecules_allowed:
+                number_skipped += 1
                 continue
             mol = Chem.MolFromSmiles(x.strip())
             if mol is None:
+                number_problems += 1
                 continue
             n += 1
+            number_worked += 1
             final_json.append(
                 SmartChemist.mol_to_annotation_json(mol)
             )
+        final_json.append(
+            {"number_worked": number_worked, "number_skipped": number_skipped, "number_problems": number_problems})
         return final_json
 
     @staticmethod
