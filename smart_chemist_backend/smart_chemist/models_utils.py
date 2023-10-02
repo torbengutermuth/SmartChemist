@@ -31,6 +31,22 @@ def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) ->
     else:
         job.input_info.input_format = 'smiles_list'
         job.input_info.input_string = """
+        P1CCCCC1 Poster Example,
+        S1NCNC1 Poster Example,
+        N1C2C(NCCCC2)CC1 Poster Example,
+        C(=Cc1ccccc1)c1ccccc1 Poster Example,
+        O1C2C(NC1)CNCC2 Poster Example,
+        o1c2nnccc2cc1 Poster Example,
+        C(=C/C(=O)O)\C(=O)O Poster Example,
+        S1NC2N(CN1)CCC2 Poster Example,
+        n1ncc2nccccc12 Poster Example,
+        CNC(N)=N Poster Example,
+        N1C2C(NCC2)CC1 Poster Example,
+        O1CC2NCCCC2C1 Poster Example,
+        c1cc(cnc1)C(=O)N Poster Example,
+        S1CNNCC1 Poster Example,
+        O1C=COC=C1 Poster Example,
+        S1C2NCCCC2CC1 Example,
         Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H](N)C(=O)O)[C@@H](O)[C@H]1O 3QOX_SAH_A_417,
         S(=O)(=O)(N)c1c(N)cc(c(S(=O)(=O)N)c1)C(F)(F)F 2POW_I7C_A_1000, 
         S(=O)(=O)(N)c1cc2c(cc1)CCNC2 1HNN_SKF_A_3001,

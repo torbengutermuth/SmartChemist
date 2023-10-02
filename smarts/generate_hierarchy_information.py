@@ -2,27 +2,69 @@ import pandas as pd
 import subprocess
 from pathlib import Path
 import sys
+from PIL import Image
 
 
 smartscompare = Path("/local/gutermuth/naomi/bin/SMARTScompare_release")
 
 citation_string = "# Usage of the SMARTS in these files is prohibited without proper citation/reference to Github and/or Publication\n"
 
-biologicals = pd.read_csv("biologicals.csv", skiprows=1)
-biologicals.sort_values(by=["trivialname"], inplace=True)
-with open("biologicals.csv", "w") as f:
+
+smartsview_path = "/local/gutermuth/naomi/bin/SmartsViewer_release"
+
+def create_picture(queryString, imagePath):
+    # start reaction viewer
+    executable_reactionViewer = smartsview_path
+    args_reactionViewer = ["-s ", queryString, "-o ", imagePath, "-p ","0 ", "0 ", "0 ", "0 ", "1", "0 ", "1 ", "0 "]
+    subprocess.run([executable_reactionViewer] + args_reactionViewer)
+    # Load the image
+    image = Image.open(imagePath)
+
+    # Convert to grayscale and get pixel data
+    gray_image = image.convert('L')
+    width, height = gray_image.size
+
+    # Find the top boundary
+    top = 0
+    for y in range(height):
+        if not all(gray_image.getpixel((x, y)) == 255 for x in range(width)):
+            top = y
+            break
+
+    # Find the bottom boundary
+    bottom = height
+    for y in range(height - 1, -1, -1):
+        if not all(gray_image.getpixel((x, y)) == 255 for x in range(width)):
+            bottom = y
+            break
+
+            # Crop the image
+    cropped_image = image.crop((0, top - 20, width, bottom - 20))
+
+    return cropped_image
+
+def uppercase_trivialnames(pandas_dataframe):
+    for index, row in pandas_dataframe.iterrows():
+        old_trivialname = row["trivialname"]
+        new_trivialname = old_trivialname[0].upper() + old_trivialname[1:]
+        print(old_trivialname, new_trivialname)
+        row["trivialname"] = new_trivialname
+
+biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
+biologicals.sort_values(by=["trivialname", "SMARTS"], inplace=True)
+with open("smarts/biologicals.csv", "w") as f:
     f.write(citation_string)
     biologicals.to_csv(f, index=None)
 
-cyclic = pd.read_csv("cyclic.csv", skiprows=1)
-cyclic.sort_values(by=["trivialname"], inplace=True)
-with open("cyclic.csv", "w") as f:
+cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+cyclic.sort_values(by=["trivialname", "SMARTS"], inplace=True)
+with open("smarts/cyclic.csv", "w") as f:
     f.write(citation_string)
     cyclic.to_csv(f, index=None)
 
-functional = pd.read_csv("functional_groups.csv", skiprows=1)
-functional.sort_values(by=["trivialname"], inplace=True)
-with open("functional_groups.csv", "w") as f:
+functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
+functional.sort_values(by=["trivialname", "SMARTS"], inplace=True)
+with open("smarts/functional_groups.csv", "w") as f:
     f.write(citation_string)
     functional.to_csv(f, index=None)
 
@@ -34,7 +76,7 @@ new_data = full_df["SMARTS"]
 print(new_data.head())
 new_data.to_csv("all_smarts_raw_automatic", index=None, header=None, sep="\t")
 
-todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "all_smarts_raw_automatic"]
+todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "all_smarts_raw_automatic", "-M", "-1"]
 process = subprocess.run(todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 print(process.stdout.decode())
 
@@ -78,17 +120,43 @@ for i in range(full_df.shape[0]):
             j += 1
     subset_column.append(current_data)
 
-print(subset_column)
-print(len(subset_data), len(subset_indexes), j)
-
-print(subset_column)
-print(len([x for x in subset_column if not len(x) == 0]))
-print(len(subset_data))
 full_df["Hierarchy"] = subset_column
 
-with open("smarts_with_hierarchy.csv", "w") as f:
+with open("smarts/smarts_with_hierarchy.csv", "w") as f:
     f.write(citation_string)
     full_df.to_csv(f, index=None)
 
 
 
+functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
+for index,row in functional.iterrows():
+    name = row["trivialname"]
+    smarts = row["SMARTS"]
+    output_path = Path("anki_pics") / (name + ".png")
+    print(name,smarts)
+    #create_picture(smarts, output_path)
+
+biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
+for index,row in biologicals.iterrows():
+    name = row["trivialname"]
+    smarts = row["SMARTS"]
+    output_path = Path("anki_pics") / (name + ".png")
+    print(name,smarts)
+    #create_picture(smarts, output_path)
+
+cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+existing_names = []
+i = 0
+for index,row in cyclic.iterrows():
+    name = row["trivialname"]
+    smarts = row["SMARTS"]
+    if name in existing_names:
+        continue
+    if name.__contains__(",") or name.__contains__("[") or smarts.__contains__("+") or smarts.__contains__("-"):
+        continue
+    existing_names.append(name)
+    output_path = Path("anki_pics") / (name + ".png")
+    print(name,smarts)
+    i += 1
+    create_picture(smarts, output_path)
+print(i)
