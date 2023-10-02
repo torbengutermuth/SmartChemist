@@ -1,19 +1,13 @@
 import io
-import pathlib
-import string
-from io import StringIO
-
-import os
 from typing import Iterable
 
 import rdkit
 from rdkit import Chem
-from rdkit.Chem import AllChem, Draw
+from rdkit.Chem import AllChem
 from rdkit.Chem.Draw import rdMolDraw2D
 import random
 
 from .models import AnnotatedPattern, PatternMatchingJob, PatternMatchingOutputModel
-from .mol_utils import read_sdf
 
 
 def random_string_generator(str_size, allowed_chars):
@@ -55,7 +49,7 @@ class SmartChemist:
                 for submatch in matches:
                     atoms_submatch = submatch["atom_indices"]
                     submatch_id = submatch["trivial_name"]["index"]
-                    if submatch_id is "":
+                    if submatch_id == "":
                         continue
                     if submatch_id in hierarchy_pattern_indexes and atoms_submatch[0] in atoms_match:
                         submatch["trivial_name"]["group"] = "overshadowed"

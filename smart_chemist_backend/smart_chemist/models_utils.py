@@ -1,6 +1,6 @@
 from typing import Type
 
-from smart_chemist.models import PatternMatchingJob, PatternMatchingInputModel, PatternMatchingOutputModel
+from smart_chemist.models import PatternMatchingJob, PatternMatchingInputModel
 
 
 def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) -> Type[PatternMatchingJob]:
@@ -48,7 +48,7 @@ def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) ->
         O1C=COC=C1 Poster Example,
         S1C2NCCCC2CC1 Example,
         Nc1ncnc2c1ncn2[C@@H]1O[C@H](CSCC[C@H](N)C(=O)O)[C@@H](O)[C@H]1O 3QOX_SAH_A_417,
-        S(=O)(=O)(N)c1c(N)cc(c(S(=O)(=O)N)c1)C(F)(F)F 2POW_I7C_A_1000, 
+        S(=O)(=O)(N)c1c(N)cc(c(S(=O)(=O)N)c1)C(F)(F)F 2POW_I7C_A_1000,
         S(=O)(=O)(N)c1cc2c(cc1)CCNC2 1HNN_SKF_A_3001,
         O1c2c(OC)c(OC)cc(c2C=C[C@H]1C3CC3)Cc4c(nc(nc4)N)N 3FYW_XCF_X_300,
         O(c1c(OC)cc2c(c1)C3=NNC(c4ccc(c5ccc(O)cc5)cc4)=C3C2)C 4FSQ_HK3_A_300,
