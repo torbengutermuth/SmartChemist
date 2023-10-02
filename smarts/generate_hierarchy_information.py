@@ -1,7 +1,6 @@
 import pandas as pd
 import subprocess
 from pathlib import Path
-import sys
 from PIL import Image
 
 
@@ -12,16 +11,31 @@ citation_string = "# Usage of the SMARTS in these files is prohibited without pr
 
 smartsview_path = "/local/gutermuth/naomi/bin/SmartsViewer_release"
 
+
 def create_picture(queryString, imagePath):
     # start reaction viewer
     executable_reactionViewer = smartsview_path
-    args_reactionViewer = ["-s ", queryString, "-o ", imagePath, "-p ","0 ", "0 ", "0 ", "0 ", "1", "0 ", "1 ", "0 "]
+    args_reactionViewer = [
+        "-s ",
+        queryString,
+        "-o ",
+        imagePath,
+        "-p ",
+        "0 ",
+        "0 ",
+        "0 ",
+        "0 ",
+        "1",
+        "0 ",
+        "1 ",
+        "0 ",
+    ]
     subprocess.run([executable_reactionViewer] + args_reactionViewer)
     # Load the image
     image = Image.open(imagePath)
 
     # Convert to grayscale and get pixel data
-    gray_image = image.convert('L')
+    gray_image = image.convert("L")
     width, height = gray_image.size
 
     # Find the top boundary
@@ -43,12 +57,14 @@ def create_picture(queryString, imagePath):
 
     return cropped_image
 
+
 def uppercase_trivialnames(pandas_dataframe):
     for index, row in pandas_dataframe.iterrows():
         old_trivialname = row["trivialname"]
         new_trivialname = old_trivialname[0].upper() + old_trivialname[1:]
         print(old_trivialname, new_trivialname)
         row["trivialname"] = new_trivialname
+
 
 biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
 biologicals.sort_values(by=["trivialname", "SMARTS"], inplace=True)
@@ -70,14 +86,24 @@ with open("smarts/functional_groups.csv", "w") as f:
 
 all_df = [functional, cyclic, biologicals]
 full_df = pd.concat(all_df)
-#smarts_data = pd.read_csv("smarts_smart_chemist.csv")
+# smarts_data = pd.read_csv("smarts_smart_chemist.csv")
 print(full_df.head())
 new_data = full_df["SMARTS"]
 print(new_data.head())
 new_data.to_csv("all_smarts_raw_automatic", index=None, header=None, sep="\t")
 
-todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "all_smarts_raw_automatic", "-M", "-1"]
-process = subprocess.run(todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+todo = [
+    smartscompare.as_posix(),
+    "-m",
+    "subsetoffirst",
+    "-f",
+    "all_smarts_raw_automatic",
+    "-M",
+    "-1",
+]
+process = subprocess.run(
+    todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True
+)
 print(process.stdout.decode())
 
 
@@ -96,7 +122,7 @@ for line in process.stdout.decode().split("\n"):
     all_patterns.add(second_pattern)
     subset_data.append([first_pattern, second_pattern])
 
-for index,row in full_df.iterrows():
+for index, row in full_df.iterrows():
     current_smarts = row["SMARTS"]
     for pattern in all_patterns:
         if pattern == current_smarts:
@@ -127,36 +153,40 @@ with open("smarts/smarts_with_hierarchy.csv", "w") as f:
     full_df.to_csv(f, index=None)
 
 
-
 functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
-for index,row in functional.iterrows():
+for index, row in functional.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
-    #create_picture(smarts, output_path)
+    print(name, smarts)
+    # create_picture(smarts, output_path)
 
 biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
-for index,row in biologicals.iterrows():
+for index, row in biologicals.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
-    #create_picture(smarts, output_path)
+    print(name, smarts)
+    # create_picture(smarts, output_path)
 
 cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
 existing_names = []
 i = 0
-for index,row in cyclic.iterrows():
+for index, row in cyclic.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     if name in existing_names:
         continue
-    if name.__contains__(",") or name.__contains__("[") or smarts.__contains__("+") or smarts.__contains__("-"):
+    if (
+        name.__contains__(",")
+        or name.__contains__("[")
+        or smarts.__contains__("+")
+        or smarts.__contains__("-")
+    ):
         continue
     existing_names.append(name)
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
+    print(name, smarts)
     i += 1
     create_picture(smarts, output_path)
 print(i)

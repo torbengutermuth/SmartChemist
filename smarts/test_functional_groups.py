@@ -102,7 +102,7 @@ class FunctionGroupPatternTest(unittest.TestCase):
             )
         )
 
-    def test_secondary_amine(self):
+    def test_tertiary_amine(self):
         df = FunctionGroupPatternTest.df_patterns.query(
             "trivialname == 'Tertiary Amine'"
         )
