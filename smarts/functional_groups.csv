@@ -1,7 +1,127 @@
 # Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory
 SMARTS,trivialname,group
+O=[#6H1][#6H1]=O,"1,2-Dialdehyde",functional_group
+O=[#6H0][#6H1]=O,"1,2-Diketoaldehyde",functional_group
+O=[#6H0][#6H0]=O,"1,2-Diketone",functional_group
+O=[#6H1]*[#6H1]=O,"1,3-Dialdehyde",functional_group
+O=[#6H0]*[#6H1]=O,"1,3-Diketoaldehyde",functional_group
+O=[#6H0]*[#6H0]=O,"1,3-Diketone",functional_group
+O=[#6H1]**[#6H1]=O,"1,4-Dialdehyde",functional_group
+O=[#6H0]**[#6H1]=O,"1,4-Diketoaldehyde",functional_group
+O=[#6H0]**[#6H0]=O,"1,4-Diketone",functional_group
+O=[#6H1]***[#6H1]=O,"1,5-Dialdehyde",functional_group
+O=[#6H0]***[#6H1]=O,"1,5-Diketoaldehyde",functional_group
+O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group
+[#8][#6H1]([#6])[#8],Acetal,functional_group
+[#6]#[#6],Acetylene,functional_group
+"[#6](=O)-[Cl,Br,I]",Acidhalide,functional_group
+[#6H1X3$(*[#6])]=O,Aldehyde,functional_group
+[#6H1]=N-[O;H1],Aldoxime,functional_group
+[#6]=[#6]=[#6],Allene,functional_group
 [#6!R](=O)[#7X3],Amide,functional_group
-[#6X3]=[OX1],Carbonyl,functional_group
+[#6!R](=[NX2])[#7X3],Amidine,functional_group
+[#7+X4][#8-],Amineoxide,functional_group
+[CX3](=[OX1])[OX2][CX3](=[OX1]),Anhydride,functional_group
+[#6]-[#7]=[#7+]=[#7-],Azide,functional_group
+[N$(*[#6])]=[N$(*[#6])],Azo,functional_group
+"[#6]B([OH1,-1])[OH1,-1]",Boronic acid,functional_group
+[Br],Bromide,functional_group
+[#6H3X4]-[#6X4H2]-[#6X4H2]-[#6X4H2],Butyl,functional_group
+[#6](=O)([NX3])-O,Carbamate,functional_group
+[NX3][CX3](=[OX1])[OX2H0],Carbamic ester,functional_group
+[C+],Carbonium,functional_group
+[#6X3]=O,Carbonyl,functional_group
+"[CX3](=O)[OH,O-]",Carboxyl group,functional_group
+[Cl],Chloride,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Decyl,functional_group
+[#6]=[N+]=[N-],Diazo,functional_group
+"[#6](-[F,Cl,Br,I])-[F,Cl,Br,I]",Dihalide,functional_group
+[OH1X2]**[OH1X2],Diol,functional_group
+[S$(*[#6])]-[S$(*[#6])],Disulfide,functional_group
+[#6;H1](-[S;D2])-[S;D2],Dithioacetal,functional_group
+[#6](-[#6])(-[#6])(-[S;D2])-[S;D2],Dithioketal,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Dodecyl,functional_group
+[#6H1](=O)[#6]=[#6],Enal,functional_group
+[#6](=[#6])-N(-[#6])-[#6],Enamine,functional_group
+[#6](=[#6])-O-[#6],Enolether,functional_group
+[#6][#6](=O)[#6]=[#6],Enone,functional_group
+[#6;!H2]1-S-[#6;!H2]1,Episulfide,functional_group
+[#6;!H2]1-O-[#6;!H2]1,Epoxide,functional_group
+"[#6H0!R](=O)-,:[#8!R$(*([#6])[#6])]",Ester,functional_group
+[#6][O!RX2H0][#6],Ether,functional_group
+[#6H3X4]-[#6X4H2],Ethyl,functional_group
+[FX1],Fluoride,functional_group
+[NH1X3][CX3](=[NH1])[NH2],Guanidine,functional_group
+"[#7$(*[#6])]-[F,Cl,Br,I]",Haloamine,functional_group
+"[#6](-[F,Cl,Br,I])-[O$([O;H]),$(O-[#6])]",Halohydrin,functional_group
+"[#6;H1](-,:[#8]-,:[#6])-,:[O;H1]",Hemiacetal,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Heptyl,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Hexyl,functional_group
+[#6](-[O;H1])-[O;H1],Hydrate,functional_group
+[NX3!H2][NX3],Hydrazide,functional_group
+[#6]=N-N,Hydrazone,functional_group
+"[#8H1,#8H0-]",Hydroxy,functional_group
+"[#6]-,:[#7]-[O;H1]",Hydroxylamine,functional_group
+[#6X3](=[OX1])[NX3][#6X3]=[OX1],Imide,functional_group
+[I],Iodide,functional_group
+[#6]-N=[#6]=O,Isocyanate,functional_group
+[#7+]#[C-],Isonitrile,functional_group
+[#6H1]([#6H3])[#6H3],Isopropyl,functional_group
+[#6X3H0$(*([#6])[#6])]=O,Ketone,functional_group
+[#6H0]=N-[O;H1],Ketoxime,functional_group
+[#6H0R](=O)@[#7;X3;R],Lactam,functional_group
+[#6H0R](=O)@[#8;X2;R],Lactone,functional_group
+[#6H3X4],Methyl,functional_group
+[#6]#N,Nitrile,functional_group
+[OX2H0]-N=O,Nitrite,functional_group
+[N+X3](=O)-[O-],Nitro,functional_group
+[NX2]=O,Nitroso,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Nonyl,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Octyl,functional_group
+[P](=O)([#6])([#6])[OHX1],Organophosphinic acid,functional_group
+[#6][#6](O[#6])(O[#6])O[#6],Ortho ester,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Pentyl,functional_group
+"[#6]-O-[O$([O;H1]),$(O-[#6])]",Peroxide,functional_group
+"O=[PX4]([O-,OX2,OH])([O-,OX2,OH])[O-,OX2,OH]",Phosphate,functional_group
+[#6]-P(-[#6])-[#6],Phosphine,functional_group
+[P]([#6])([#6])([#6])=O,Phosphine oxide,functional_group
+[PX3]([#6])(O[#6])[#6],Phosphinite,functional_group
+[PX3](O[#6])(O[#6])O[#6],Phosphite ester,functional_group
+[#6]P(=O)(O*)O*,Phosphonate,functional_group
+[PX3](O[#6])(O[#6])[#6],Phosphonite,functional_group
+O=[PX4][#7X3],Phosphoramide,functional_group
+O=[PX4][#7X2],Phosphorimide,functional_group
 "[#7X3H2$(*[#6]),#7X4+H3$(*[#6])]",Primary Amine,functional_group
+[CX3H1]=[NX2H1],Primary aldimine,functional_group
+[CX3H0]=[NX2H1],Primary ketimine,functional_group
+[#6H3X4]-[#6X4H2]-[#6X4H2],Propyl,functional_group
+[NX4+H0],Quartenary Amine,functional_group
 "[#7X3H1$(*([#6])[#6]),#7X4+H2$(*([#6])[#6])]",Secondary Amine,functional_group
+[CX3H1]=[NX2H0],Secondary aldimine,functional_group
+[CX3H0]=[NX2H0],Secondary ketimine,functional_group
+[#6]-[Se]-[#6],Selenide,functional_group
+[#6](=C)-O-[Si](-[#6])(-[#6])-[#6],Silylenolether,functional_group
+"[#6]-,:[#16!R]-,:[#6]",Sulfide,functional_group
+[SX4!R](=O)(=O)[NX3!R],Sulfonamide,functional_group
+"S(=O)(=O)-[O&H1,O&-]",Sulfonate,functional_group
+[#6]-S(=O)(=O)-[#6],Sulfone,functional_group
+[SX4!R](=O)(=O)[NX2!R],Sulfonimide,functional_group
+"[#6]-,:[#16](=O)-,:[#6]",Sulfoxide,functional_group
+[SX4R](=O)(=O)[NX3R],Sultam,functional_group
+[CX4](-[CH3X4])(-[CH3X4])-[CH3X4],Tertbutyl,functional_group
 "[#7X3H0$(*([#6])([#6])[#6]),#7X4+H1$(*([#6])([#6])[#6])]",Tertiary Amine,functional_group
+[#6]-S-C#N,Thiocyanate,functional_group
+"[#6](=O)-,:[#16]-,:[#6]",Thioester,functional_group
+"[SH1,SH0-]",Thiol,functional_group
+[#6]-O-[Si](-[#6])(-[#6])-[#6],Trialkylsiloxy,functional_group
+[#6]-[Si](-[#6])(-[#6])-[#6],Trialkylsilyl,functional_group
+[#6](Br)(Br)Br,Tribromomethyl,functional_group
+[#6](Cl)(Cl)Cl,Trichloromethyl,functional_group
+[#6](F)(F)F,Trifluoromethyl,functional_group
+"[#6](-[F,Cl,Br,I])(-[F,Cl,Br,I])-[F,Cl,Br,I]",Trihalide,functional_group
+[#6](I)(I)I,Triiodomethyl,functional_group
+[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Undecyl,functional_group
+[#7X3][#6X3](=O)[#7X3],Urea,functional_group
+"[#6](-[F,Cl,Br,I])-[#6]-[F,Cl,Br,I]",Vicdihalide,functional_group
+[CX3H1]=[CH2],Vinyl,functional_group
+[#6](=C)-[Si](-[#6])(-[#6])-[#6],Vinylsilane,functional_group
