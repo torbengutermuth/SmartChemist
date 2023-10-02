@@ -1,6 +1,36 @@
 from typing import Type
 
+import requests
+import xml.etree.ElementTree as ET
+
 from smart_chemist.models import PatternMatchingJob, PatternMatchingInputModel, PatternMatchingOutputModel
+
+
+def get_smiles_from_request_data(input_string: str) -> str:
+    """Parse an input request string."""
+    if input_string.startswith("chembl.compound:"):
+        # example: chembl.compound:CHEMBL50894
+        chembl_id = input_string.removeprefix("chembl.compound:")
+        url = f"https://www.ebi.ac.uk/chembl/api/data/molecule/{chembl_id}"
+        res = requests.get(url).json()
+        return res["molecule_structures"]["canonical_smiles"]
+    elif input_string.startswith("chebi"):
+        # example: chebi:138488
+        chebi_id = input_string.removeprefix("chebi:")
+        chebi_url = f"http://www.ebi.ac.uk/webservices/chebi/2.0/test/getCompleteEntity?chebiId={chebi_id}"
+        response = requests.get(chebi_url)
+        root = ET.fromstring(response.text)
+        return root.find(".//{*}smiles").text
+    elif input_string.startswith("cas"):
+        raise NotImplementedError  # could use ChemSpider?
+    elif input_string.startswith("pubchem.compound"):
+        # example: pubchem.compound:5005498
+        cid = input_string.removeprefix("pubchem.compound:")
+        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid}/property/CanonicalSMILES/JSON"
+        data = requests.get(url).json()
+        return data["PropertyTable"]["Properties"][0]["CanonicalSMILES"]
+    else:
+        return input_string
 
 
 def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) -> Type[PatternMatchingJob]:
@@ -14,9 +44,9 @@ def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) ->
     job.input_info = PatternMatchingInputModel(parent_pattern_matching_job=job)
 
     job.input_info.input_max_nof_molecules_allowed = nof_molecules_allowed
-    if "smiles" in request_data:
+    if "smiles" in request_data:  # TODO change this field to be "identifier"
         job.input_info.input_format = 'smiles_list'
-        job.input_info.input_string = request_data["smiles"]
+        job.input_info.input_string = get_smiles_from_request_data(request_data["smiles"])
     elif "molecule_file" in request_data:
         file_name = request_data["molecule_file"].name
         if file_name.endswith(".smi"):

@@ -49,6 +49,10 @@ For a SMILES string:
 ```bash
 curl -vvv -d 'smiles=S(=O)(=O)(NC(=O)Nc1nc(OC)cc(OC)n1)Cc2c(cccc2)C(=O)OC' localhost:8000/api/names
 ```
+For a ChEBI identifier:
+```bash
+curl -vvv -d 'smiles=chebi:138488' localhost:8000/api/names
+```
 For a file:
 ```bash
 curl -vvv -X POST -F molecule_file=@'/path/to/your/file/ligands.sdf' localhost:8000/api/names
