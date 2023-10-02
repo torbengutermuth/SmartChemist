@@ -31,7 +31,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
-        flake8 --extend-ignore=D203,E203,E501,W503,W605,E402 .
+        flake8 --extend-ignore=D203,E203,E501,W503,W605,E402 --exclude=*.conf.py .
     - name: Test smarts with unittest coverage
       run: |
         coverage run -m unittest discover smarts
