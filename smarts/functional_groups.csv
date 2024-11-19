@@ -76,7 +76,7 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group
 [#6H0R](=O)@[#7;X3;R],Lactam,functional_group
 [#6H0R](=O)@[#8;X2;R],Lactone,functional_group
 [#6H3X4],Methyl,functional_group
-[NX3+]([OX1-])(=[OX1])O),Nitrate,functional_group
+[NX3+]([OX1-])(=[OX1])O,Nitrate,functional_group
 [NX3](=[OX1])(=[OX1])O,Nitrate,functional_group
 [#6]#N,Nitrile,functional_group
 [OX2H0]-N=O,Nitrite,functional_group
@@ -125,8 +125,8 @@ O=[PX4][#7X2],Phosphorimide,functional_group
 [#6]-S(=O)(=O)-[#6],Sulfone,functional_group
 [SX4!R](=O)(=O)[NX2!R],Sulfonimide,functional_group
 "[#6]-,:[#16](=O)-,:[#6]",Sulfoxide,functional_group
-[SX4+2]([O-])([O-])(O)O),Sulfuric acid ester,functional_group
-[SX4](=O)(=O)(O)O),Sulfuric acid ester,functional_group
+[SX4+2]([O-])([O-])(O)O,Sulfuric acid ester,functional_group
+[SX4](=O)(=O)(O)O,Sulfuric acid ester,functional_group
 [SX4R](=O)(=O)[NX3R],Sultam,functional_group
 [CX4](-[CH3X4])(-[CH3X4])-[CH3X4],Tertbutyl,functional_group
 "[#7X3H0$(*([#6])([#6])[#6]),#7X4+H1$(*([#6])([#6])[#6])]",Tertiary Amine,functional_group
