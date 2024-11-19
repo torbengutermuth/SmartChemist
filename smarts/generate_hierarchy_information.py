@@ -68,15 +68,14 @@ with open("smarts/functional_groups.csv", "w") as f:
     f.write(citation_string)
     functional.to_csv(f, index=None)
 
-all_df = [functional, cyclic, biologicals]
-full_df = pd.concat(all_df)
+hierarchy_df = pd.concat([functional, biologicals])
+full_df = pd.concat([functional, cyclic, biologicals])
 #smarts_data = pd.read_csv("smarts_smart_chemist.csv")
 print(full_df.head())
-new_data = full_df["SMARTS"]
+new_data = hierarchy_df["SMARTS"]
 print(new_data.head())
-new_data.to_csv("all_smarts_raw_automatic", index=None, header=None, sep="\t")
-
-todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "all_smarts_raw_automatic", "-M", "-1"]
+new_data.to_csv("hierarchy_smarts_automatic", index=None, header=None, sep="\t")
+todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "hierarchy_smarts_automatic", "-M", "-1"]
 process = subprocess.run(todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 print(process.stdout.decode())
 
@@ -144,7 +143,9 @@ for index,row in biologicals.iterrows():
     print(name,smarts)
     #create_picture(smarts, output_path)
 
+sys.exit()
 cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+
 existing_names = []
 i = 0
 for index,row in cyclic.iterrows():
