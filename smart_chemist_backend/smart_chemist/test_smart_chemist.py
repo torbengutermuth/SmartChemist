@@ -13,8 +13,9 @@ class SmartChemistTests(TestCase):
 
         anno_pattern = AnnotatedPattern(smarts='c=O', trivial_name='my_name')
         anno_pattern.save()
+        instance = SmartChemist()
 
-        matches = SmartChemist._match_smarts_patterns(mol)
+        matches = instance._match_smarts_patterns(mol)
         self.assertEqual(len(matches), 2)
         self.assertEqual(len(matches[0]['atom_indices']), 2)
         self.assertEqual(matches[0]['trivial_name']['name'], 'my_name')

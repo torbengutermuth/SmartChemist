@@ -21,4 +21,5 @@ def pattern_matching(job):
     :param job: PatternMatchingJob object containing the job data
     :type job: PatternMatchingJob
     """
-    SmartChemist.handle_pattern_matching(job)
+    instance = SmartChemist()
+    instance.handle_pattern_matching(job=job)
