@@ -85,7 +85,10 @@ class SmartChemist:
         matches = []
         # iterate all annotated SMARTS patterns from our database
         for db_row in AnnotatedPattern.objects.all():
-            pattern = Chem.MolFromSmarts(db_row.smarts)
+            if db_row.group == "cyclic":
+                pattern = Chem.MolFromSmiles(db_row.smarts)
+            else:
+                pattern = Chem.MolFromSmarts(db_row.smarts)
             if mol.HasSubstructMatch(pattern, useChirality=True):
                 hit_atom_indices_list = mol.GetSubstructMatches(pattern, useChirality=True)
                 for hit_atom_indices in hit_atom_indices_list:
