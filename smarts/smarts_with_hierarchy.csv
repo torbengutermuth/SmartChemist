@@ -43,7 +43,7 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group,[35]
 [N]#[#6]-[O$(*([#6])[#6])],Cyanate,functional_group,"[41, 72, 96]"
 [#7]#[CX2],Cyanide,functional_group,"[14, 35, 96, 6, 23]"
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Decyl,functional_group,"[14, 33, 35, 63, 67, 68, 90, 101, 102, 105, 116, 6, 23]"
-"[#6,#15,#16](=[#8,#7,#15,#16])-[NX3]-[#6,#15,#16](=[#8,#7,#15,#16])",Diacylamine,functional_group,[]
+"[#6,#15,#16](=[#8,#7,#15,#16])-[NX3]-[#6,#15,#16](=[#8,#7,#15,#16])",Diacylamine,functional_group,"[14, 35, 6, 23, 55]"
 [#6]=[N+]=[N-X1],Diazo,functional_group,"[14, 35, 121, 6, 23]"
 [#6](Br)Br,Dibromomethyl,functional_group,"[14, 32, 35, 48, 6, 23]"
 [#6](Cl)Cl,Dichloromethyl,functional_group,"[39, 48]"
@@ -40928,7 +40928,7 @@ O=C(O)C(=O)CC(=O)O,Oxaloacetic acid,biological,[]
 "[OH1,O-]c1ccccc1",Phenol,biological,[]
 "c1ccc(cc1)CC([C$(*-[N,O])]=O)N",Phenylalanine,biological,[]
 "C1CC(NC1)[C$(*-[N,O])]=O",Proline,biological,[]
-"C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])=O)N",Pyrrolysine,biological,[]
+"C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological,[]
 "O=[C$(*-[N,O])]C(N)C[Se]",Selenocysteine,biological,[]
 "C([C@@H]([C$(*[N,O])]=O)N)O",Serine,biological,[]
 C(=Cc1ccccc1)c1ccccc1,Stilbene,biological,[]
