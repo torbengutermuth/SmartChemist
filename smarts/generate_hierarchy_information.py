@@ -69,15 +69,17 @@ with open("smarts/functional_groups.csv", "w") as f:
     functional.to_csv(f, index=None)
 
 hierarchy_df = pd.concat([functional, biologicals])
+hierarchy_df.reset_index(inplace=True,drop=True)
 full_df = pd.concat([functional, cyclic, biologicals])
+full_df.reset_index(inplace=True,drop=True)
 #smarts_data = pd.read_csv("smarts_smart_chemist.csv")
-print(full_df.head())
+#print(full_df.head())
 new_data = hierarchy_df["SMARTS"]
-print(new_data.head())
+#print(new_data.head())
 new_data.to_csv("hierarchy_smarts_automatic", index=None, header=None, sep="\t")
 todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "hierarchy_smarts_automatic", "-M", "-1"]
 process = subprocess.run(todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-print(process.stdout.decode())
+#print(process.stdout.decode())
 
 
 all_patterns = set()
@@ -90,7 +92,7 @@ for line in process.stdout.decode().split("\n"):
         continue
     first_pattern = line.split(" ")[1].split("\t")[0][1:-1]
     second_pattern = line.split(" ")[3][1:-1]
-    print(first_pattern, second_pattern)
+    #print(first_pattern, second_pattern)
     all_patterns.add(first_pattern)
     all_patterns.add(second_pattern)
     subset_data.append([first_pattern, second_pattern])
@@ -103,11 +105,11 @@ for index,row in full_df.iterrows():
 
 subset_column = []
 subset_indexes = []
-print(subset_data)
+#print(subset_data)
 for subset in subset_data:
-    print(subset)
     first_index = pattern_to_index[subset[0]]
     second_index = pattern_to_index[subset[1]]
+    print(subset,first_index, second_index)
     subset_indexes.append([first_index, second_index])
 
 j = 0
@@ -116,6 +118,7 @@ for i in range(full_df.shape[0]):
     for index_pair in subset_indexes:
         if i == index_pair[1]:
             current_data.append(index_pair[0])
+            print(index_pair)
             j += 1
     subset_column.append(current_data)
 
@@ -132,7 +135,7 @@ for index,row in functional.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
+    #print(name,smarts)
     #create_picture(smarts, output_path)
 
 biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
@@ -140,7 +143,7 @@ for index,row in biologicals.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
+    #print(name,smarts)
     #create_picture(smarts, output_path)
 
 sys.exit()
