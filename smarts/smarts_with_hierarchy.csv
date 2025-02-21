@@ -15,7 +15,7 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group,[35]
 "[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8$(*([#6])[#6])]",Acetal,functional_group,[]
 [#6]#[#6],Acetylene,functional_group,[]
 "[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])",Acyl group,functional_group,[]
-"[#6,#15,#16;X3$(*[#6]](=[#8,#7,#15,#16])-[F,Cl,Br,I]",Acyl halide,functional_group,[]
+"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])-[F,Cl,Br,I]",Acyl halide,functional_group,[14]
 [#6H1X3$(*[#6])]=O,Aldehyde,functional_group,"[14, 35]"
 "[N$(*-[#6,#1])]=[CH1$(*[#6,#1])]",Aldimine,functional_group,[]
 [#6H1]=N-[O;H1],Aldoxime,functional_group,"[72, 101]"
