@@ -32,14 +32,14 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group,[35]
 [#7$(*[#6])]=[#7+]=[#7-],Azide,functional_group,[]
 [N$(*[#6])]=[N$(*[#6])],Azo,functional_group,[]
 "[B$([#6])]([OH1,-1])[OH1,-1]",Boronic acid,functional_group,[]
-[Br],Bromide,functional_group,[]
+[Br],Bromine,functional_group,[]
 [#6H3X4]-[#6X4H2]-[#6X4H2]-[#6X4H2],Butyl,functional_group,"[63, 87, 113]"
 [#6](=O)([NX3])-O,Carbamate,functional_group,[35]
 [#6]=O,Carbonyl,functional_group,[]
 [#6!R](=O)[#7X3],Carboxamide,functional_group,"[21, 35]"
 [#6!R](=[NX2])[#7X3],Carboxamidine,functional_group,[23]
 "[CX3](=O)[O-,OH]",Carboxylic acid,functional_group,"[35, 72]"
-[Cl],Chloride,functional_group,[]
+[Cl],Chlorine,functional_group,[]
 [N]#[#6]-[O$(*([#6])[#6])],Cyanate,functional_group,"[41, 93]"
 [#7]#[CX2],Cyanide,functional_group,[93]
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Decyl,functional_group,"[33, 63, 67, 68, 87, 98, 99, 102, 113]"
@@ -64,19 +64,19 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group,[35]
 "[#6H0!R](=O)-,:[#8!R$(*([#6])[#6])]",Ester,functional_group,[35]
 [O!RX2H0$(*([#6])[#6])],Ether,functional_group,[]
 [#6H3X4]-[#6X4H2],Ethyl,functional_group,[87]
-[FX1],Fluoride,functional_group,[]
+[FX1],Fluorine,functional_group,[]
 [NH1X3][CX3](=[NH1])[NH2],Guanidine,functional_group,[]
 "[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8H1]",Hemiacetal,functional_group,[72]
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Heptyl,functional_group,"[33, 63, 68, 87, 102, 113]"
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Hexyl,functional_group,"[33, 63, 87, 102, 113]"
 "O=[#6,#15,#16][NX3][NX3]",Hydrazide,functional_group,[]
-[#6]=N-N,Hydrazone,functional_group,[]
+[#6X3]=N-[NX3],Hydrazone,functional_group,[]
 "[O$(*[#6])]-[OH1,O-]",Hydroperoxide,functional_group,[72]
 "[#8H1,#8H0-]",Hydroxy,functional_group,[]
 "[#7X3]-[OH1,O-]",Hydroxylamine,functional_group,[72]
 "[#6,#15,#16](=[#8,#7,#15,#16])-[NX3R]-[#6,#15,#16](=[#8,#7,#15,#16])",Imide,functional_group,[]
 "[N$(*-[#6,#1])]=[C$(*([#6,#1])[#6,#1])]",Imine,functional_group,[]
-[I],Iodide,functional_group,[]
+[I],Iodine,functional_group,[]
 [NX2]=[#6]=O,Isocyanate,functional_group,[35]
 [#7+]#[C-],Isocyanide,functional_group,[93]
 [#6H1]([#6H3])[#6H3],Isopropyl,functional_group,[87]
@@ -96,7 +96,7 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group,[35]
 [#7$(*#C)],Nitrile,functional_group,[]
 "[#6$(*[#6,#1])]#[N+]-[N-$(*[#6,#1])]",Nitrile imide,functional_group,"[41, 93, 157]"
 [N+X3](=O)-[O-],Nitro,functional_group,"[19, 72, 73, 157]"
-O=NN=[CX3],Nitrosimine,functional_group,[70]
+O=NN=[CX3],Nitrosimine,functional_group,[]
 [NX2]=O,Nitroso,functional_group,[]
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Nonyl,functional_group,"[33, 63, 67, 68, 87, 99, 102, 113]"
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Octyl,functional_group,"[33, 63, 67, 68, 87, 102, 113]"
