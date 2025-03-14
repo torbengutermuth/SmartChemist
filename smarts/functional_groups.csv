@@ -48,7 +48,7 @@ O=[#6H0]***[#6H0]=O,"1,5-Diketone",functional_group
 [#6](Br)Br,Dibromomethyl,functional_group
 [#6](Cl)Cl,Dichloromethyl,functional_group
 [#6](F)F,Difluoromethyl,functional_group
-"[#6](-[F,Cl,Br,I])-[F,Cl,Br,I]",Dihalide,functional_group
+"[#6]([F,Cl,Br,I])[F,Cl,Br,I]",Dihalide,functional_group
 [#6](I)I,Diiodomethyl,functional_group
 [OH1X2]**[OH1X2],Diol,functional_group
 [S$(*[#6])]-[S$(*[#6])],Disulfide,functional_group
@@ -152,7 +152,7 @@ O=[PX4][#7X3],Phosphoramide,functional_group
 [#6](Br)(Br)Br,Tribromomethyl,functional_group
 [#6](Cl)(Cl)Cl,Trichloromethyl,functional_group
 [#6](F)(F)F,Trifluoromethyl,functional_group
-"[#6](-[F,Cl,Br,I])(-[F,Cl,Br,I])-[F,Cl,Br,I]",Trihalide,functional_group
+"[#6]([F,Cl,Br,I])([F,Cl,Br,I])[F,Cl,Br,I]",Trihalide,functional_group
 [#6](I)(I)I,Triiodomethyl,functional_group
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Undecyl,functional_group
 [#7X3][#6X3](=O)[#7X3],Urea,functional_group
