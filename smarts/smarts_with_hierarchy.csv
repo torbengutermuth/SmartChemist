@@ -1,4 +1,4 @@
-# Usage of the SMARTS in these files is prohibited without proper citation/reference to Github and/or Publication
+# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory
 SMARTS,trivialname,group,Hierarchy
 [#6!R](=O)[#7X3],Amide,functional_group,[1]
 [#6X3]=[OX1],Carbonyl,functional_group,[]

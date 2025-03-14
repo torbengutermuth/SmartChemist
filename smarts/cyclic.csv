@@ -1,4 +1,4 @@
-# Usage of the SMARTS in these files is prohibited without proper citation/reference to Github and/or Publication
+# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory
 SMARTS,trivialname,group
 c1ccccc1,Benzene,cyclic
 c1nc2c(n1)ncnc2,Purine,cyclic

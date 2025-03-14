@@ -7,7 +7,7 @@ from PIL import Image
 
 smartscompare = Path("/local/gutermuth/naomi/bin/SMARTScompare_release")
 
-citation_string = "# Usage of the SMARTS in these files is prohibited without proper citation/reference to Github and/or Publication\n"
+citation_string = "# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory\n"
 
 
 smartsview_path = "/local/gutermuth/naomi/bin/SmartsViewer_release"
