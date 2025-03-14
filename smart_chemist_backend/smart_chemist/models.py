@@ -48,6 +48,15 @@ class AnnotatedPattern(models.Model):
     group = models.CharField(max_length=256)
     hierarchy = models.CharField(max_length=500, default=None)
     index_file = models.IntegerField(default=0)
+    heavy_atoms = models.IntegerField(default=0)
+    num_rings = models.IntegerField(default=0)
+    n_nitrogens = models.IntegerField(default=0)
+    n_sulfur = models.IntegerField(default=0)
+    n_oxygen = models.IntegerField(default=0)
+    n_carbon = models.IntegerField(default=0)
+    n_phosphor = models.IntegerField(default=0)
+    n_halogens = models.IntegerField(default=0)
+    n_other_atom = models.IntegerField(default=0)
 
 
 class BugReport(models.Model):

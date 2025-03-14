@@ -45,6 +45,8 @@ def check_list_in_list(list1, list2):
 
 
 class SmartChemist:
+    pattern_dictionary = {} # Dictionary with index as key and built mol object as value
+    # This dictionary should drastically reduce the time needed for multi-mol queries
     @staticmethod
     def _check_hierarchy(matches: list):
         for match in matches:
@@ -80,12 +82,47 @@ class SmartChemist:
                     elif bonds2 < bonds1:
                         match["trivial_name"]["group"] = "overshadowed"
 
-    @staticmethod
-    def _match_smarts_patterns(mol: rdkit.Chem.rdchem.Mol, remove_overshadowed_patterns: bool = False):
+    def _match_smarts_patterns(self, mol: rdkit.Chem.rdchem.Mol, remove_overshadowed_patterns: bool = False):
         matches = []
         # iterate all annotated SMARTS patterns from our database
+        heavy_atoms = mol.GetNumHeavyAtoms()
+        number_rings = len(Chem.GetSymmSSSR(mol))
+        n_nitrogen = n_sulfur = n_oxygen = n_carbon = n_halogens = n_phospor = 0
+        for atom in mol.GetAtoms():
+            number = atom.GetAtomicNum()
+            if number == 6:
+                n_carbon += 1
+            elif number == 7:
+                n_nitrogen += 1
+            elif number == 8:
+                n_oxygen += 1
+            elif number == 15:
+                n_phospor += 1
+            elif number == 16:
+                n_sulfur += 1
+            elif number == 9 or number == 17 or number == 35 or number == 53:
+                n_halogens += 1
+        n_other = heavy_atoms - n_nitrogen - n_sulfur - n_oxygen - n_carbon - n_halogens - n_phospor
         for db_row in AnnotatedPattern.objects.all():
-            pattern = Chem.MolFromSmarts(db_row.smarts)
+            # This checks on some descriptors that the pattern can possibly be matched to speed everything up
+            if (heavy_atoms < db_row.heavy_atoms
+                    or number_rings < db_row.num_rings
+                    or n_nitrogen < db_row.n_nitrogens
+                    or n_oxygen < db_row.n_oxygen
+                    or n_sulfur < db_row.n_sulfur
+                    or n_carbon < db_row.n_carbon
+                    or n_halogens < db_row.n_halogens
+                    or n_phospor < db_row.n_phosphor
+                    or n_other < db_row.n_other_atom):
+                continue
+            if db_row.id in self.pattern_dictionary:
+                pattern = self.pattern_dictionary[db_row.id]
+            else:
+                if db_row.group == "cyclic":
+                    pattern = Chem.MolFromSmiles(db_row.smarts)
+                else:
+                    pattern = Chem.MolFromSmarts(db_row.smarts)
+                self.pattern_dictionary[db_row.id] = pattern
             if mol.HasSubstructMatch(pattern, useChirality=True):
                 hit_atom_indices_list = mol.GetSubstructMatches(pattern, useChirality=True)
                 for hit_atom_indices in hit_atom_indices_list:
@@ -102,7 +139,7 @@ class SmartChemist:
                             },
                         }
                     )
-        SmartChemist._check_overshadowed_patterns(matches)
+        self._check_overshadowed_patterns(matches)
         if remove_overshadowed_patterns:
             matches = [x for x in matches if x["trivial_name"]["group"] != "overshadowed"]
         return matches
@@ -118,24 +155,22 @@ class SmartChemist:
         result = drawer.GetDrawingText()
         return result
 
-    @staticmethod
-    def mol_to_annotation_json(mol: rdkit.Chem.rdchem.Mol) -> dict:
+    def mol_to_annotation_json(self, mol: rdkit.Chem.rdchem.Mol) -> dict:
 
         # search the database for annotations of substructures
-        db_matches = SmartChemist._match_smarts_patterns(mol)
+        db_matches = self._match_smarts_patterns(mol)
         if mol.HasProp("_Name"):
             name = mol.GetProp("_Name")
         else:
             name = "No Name"
         return {
             "name": name,
-            "svg": SmartChemist._mol_to_image_str(mol, 400, 400),
+            "svg": self._mol_to_image_str(mol, 400, 400),
             "matches": db_matches,
             "smiles": Chem.MolToSmiles(mol),
         }
 
-    @staticmethod
-    def handle_string_input(string_input: str, nof_molecules_allowed: int):
+    def handle_string_input(self, string_input: str, nof_molecules_allowed: int):
         smiles_list = string_input.split(",")
         final_json = []
         n = 0
@@ -153,14 +188,13 @@ class SmartChemist:
             n += 1
             number_worked += 1
             final_json.append(
-                SmartChemist.mol_to_annotation_json(mol)
+                self.mol_to_annotation_json(mol)
             )
         final_json.append(
             {"number_worked": number_worked, "number_skipped": number_skipped, "number_problems": number_problems})
         return final_json
 
-    @staticmethod
-    def handle_file_input(mol_supplier: Iterable, nof_molecules_allowed: int):
+    def handle_file_input(self, mol_supplier: Iterable, nof_molecules_allowed: int):
         n = 0
         number_worked = 0
         number_skipped = 0
@@ -176,30 +210,29 @@ class SmartChemist:
                 continue
             n += 1
             number_worked += 1
-            final_json.append(SmartChemist.mol_to_annotation_json(mol))
+            final_json.append(self.mol_to_annotation_json(mol))
         final_json.append(
             {"number_worked": number_worked, "number_skipped": number_skipped, "number_problems": number_problems})
         return final_json
 
-    @staticmethod
-    def handle_pattern_matching(job: PatternMatchingJob) -> None:
+    def handle_pattern_matching(self,job: PatternMatchingJob) -> None:
         """Handles pattern matching using the PatternMatchingJob object.
 
         :param job: The job object.
         """
         # read input data and call according function for the input format/type
         if job.input_info.input_format == 'smiles_list':
-            output_json = SmartChemist.handle_string_input(
+            output_json = self.handle_string_input(
                 job.input_info.input_string,
                 job.input_info.input_max_nof_molecules_allowed)
         elif job.input_info.input_format == '.smi':
             suppl = Chem.SmilesMolSupplierFromText(job.input_info.input_string, titleLine=False)
-            output_json = SmartChemist.handle_file_input(
+            output_json = self.handle_file_input(
                 suppl,
                 job.input_info.input_max_nof_molecules_allowed)
         elif job.input_info.input_format == '.sdf':
             suppl = Chem.ForwardSDMolSupplier(io.BytesIO(str.encode(job.input_info.input_string)))
-            output_json = SmartChemist.handle_file_input(
+            output_json = self.handle_file_input(
                 suppl,
                 job.input_info.input_max_nof_molecules_allowed)
         else:
