@@ -1,3 +1,23 @@
+# SMARTChemist Pattern Collection 1.0
+# The SMARTChemist Pattern Collection is a set of SMARTS expressions
+# for assigning names of functional groups and substructures to organic
+# compounds.
+# The SMARTChemist Pattern Collection is licensed under CC-BY-ND (4.0).
+# Note that no warranty of any kind is granted.
+# The SMARTChemist Pattern Collection was developed by T. Gutermuth,
+# P. Penner, J. Sieg and U.Dolfus at the University of Hamburg, ZBH - Center for
+# Bioinformatics, Germany. For further details or for giving feedback
+# please consult our web page https://chemist.smarts.plus
+# In case your software uses the SMARTChemist Pattern collection, the
+# software should print the following text in the About/Authorship
+# section or during start-up:
+#   "This software uses the SMARTChemist Pattern Collection developed
+#    at the University of Hamburg, Germany. For details see
+#    https://chemist.smarts.plus."
+# In scientific literature or written documentation, cite the following
+# publication:
+# 1. Publication not yet published
+
 Attribution-NoDerivatives 4.0 International
 
 =======================================================================
