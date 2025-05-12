@@ -50,21 +50,21 @@ def uppercase_trivialnames(pandas_dataframe):
         print(old_trivialname, new_trivialname)
         row["trivialname"] = new_trivialname
 
-biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
+biologicals = pd.read_csv("biologicals.csv", skiprows=1)
 biologicals.sort_values(by=["trivialname", "SMARTS"], inplace=True)
-with open("smarts/biologicals.csv", "w") as f:
+with open("biologicals.csv", "w") as f:
     f.write(citation_string)
     biologicals.to_csv(f, index=None)
 
-cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+cyclic = pd.read_csv("cyclic.csv", skiprows=1)
 cyclic.sort_values(by=["trivialname", "SMARTS"], inplace=True)
-with open("smarts/cyclic.csv", "w") as f:
+with open("cyclic.csv", "w") as f:
     f.write(citation_string)
     cyclic.to_csv(f, index=None)
 
-functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
+functional = pd.read_csv("functional_groups.csv", skiprows=1)
 functional.sort_values(by=["trivialname", "SMARTS"], inplace=True)
-with open("smarts/functional_groups.csv", "w") as f:
+with open("functional_groups.csv", "w") as f:
     f.write(citation_string)
     functional.to_csv(f, index=None)
 
@@ -124,13 +124,13 @@ for i in range(full_df.shape[0]):
 
 full_df["Hierarchy"] = subset_column
 
-with open("smarts/smarts_with_hierarchy.csv", "w") as f:
+with open("smarts_with_hierarchy.csv", "w") as f:
     f.write(citation_string)
-    full_df.to_csv(f, index=None)
+    full_df.to_csv(f)
 
 
 
-functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
+functional = pd.read_csv("functional_groups.csv", skiprows=1)
 for index,row in functional.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
@@ -138,7 +138,7 @@ for index,row in functional.iterrows():
     #print(name,smarts)
     #create_picture(smarts, output_path)
 
-biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
+biologicals = pd.read_csv("biologicals.csv", skiprows=1)
 for index,row in biologicals.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
@@ -147,7 +147,7 @@ for index,row in biologicals.iterrows():
     #create_picture(smarts, output_path)
 
 sys.exit()
-cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+cyclic = pd.read_csv("cyclic.csv", skiprows=1)
 
 existing_names = []
 i = 0
