@@ -1,4 +1,4 @@
-# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
+# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND 4.0 license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
 SMARTS,trivialname,group
 O=[#6H1][#6H1]=O,"1,2-Dialdehyde",functional_group
 O=[#6H0][#6H1]=O,"1,2-Diketoaldehyde",functional_group

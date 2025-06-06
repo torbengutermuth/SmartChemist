@@ -1,4 +1,4 @@
-# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
+# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND 4.0 license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
 SMARTS,trivialname,group
 C1C(=O)NS1(=O)=O,3-Oxo-β-sultam,biological
 O=P(O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,ADP,biological
