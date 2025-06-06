@@ -5,6 +5,8 @@ Once running, you can supply a string of comma separated SMILES, a SMILES file (
 There are three different types of patterns displayed, ringsystems and biologicals (cyclic), functional groups (functional_groups) and patterns that are overshadowed by others (overshadowed).
 If the match of a substructure is u subset of another (e.g. hydroxyl group in a carbonic acid), this pattern is overshadowed and shall not be displayed as a default setting.
 
+Please cite the SmartChemist Publication in JCIM (DOI TBA) when using the Code or patterns in this repository.
+
 ## Installation
 
 As the SmartChemist is not yet published, this repository remains WIP.  

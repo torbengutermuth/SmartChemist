@@ -1,4 +1,4 @@
-# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory
+# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
 SMARTS,trivialname,group,Hierarchy
 [#6!R](=O)[#7X3],Amide,functional_group,[1]
 [#6X3]=[OX1],Carbonyl,functional_group,[]
