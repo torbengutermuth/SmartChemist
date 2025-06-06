@@ -50,35 +50,36 @@ def uppercase_trivialnames(pandas_dataframe):
         print(old_trivialname, new_trivialname)
         row["trivialname"] = new_trivialname
 
-biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
+biologicals = pd.read_csv("biologicals.csv", skiprows=1)
 biologicals.sort_values(by=["trivialname", "SMARTS"], inplace=True)
-with open("smarts/biologicals.csv", "w") as f:
+with open("biologicals.csv", "w") as f:
     f.write(citation_string)
     biologicals.to_csv(f, index=None)
 
-cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+cyclic = pd.read_csv("cyclic.csv", skiprows=1)
 cyclic.sort_values(by=["trivialname", "SMARTS"], inplace=True)
-with open("smarts/cyclic.csv", "w") as f:
+with open("cyclic.csv", "w") as f:
     f.write(citation_string)
     cyclic.to_csv(f, index=None)
 
-functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
+functional = pd.read_csv("functional_groups.csv", skiprows=1)
 functional.sort_values(by=["trivialname", "SMARTS"], inplace=True)
-with open("smarts/functional_groups.csv", "w") as f:
+with open("functional_groups.csv", "w") as f:
     f.write(citation_string)
     functional.to_csv(f, index=None)
 
-all_df = [functional, cyclic, biologicals]
-full_df = pd.concat(all_df)
+hierarchy_df = pd.concat([functional, biologicals])
+hierarchy_df.reset_index(inplace=True,drop=True)
+full_df = pd.concat([functional, cyclic, biologicals])
+full_df.reset_index(inplace=True,drop=True)
 #smarts_data = pd.read_csv("smarts_smart_chemist.csv")
-print(full_df.head())
-new_data = full_df["SMARTS"]
-print(new_data.head())
-new_data.to_csv("all_smarts_raw_automatic", index=None, header=None, sep="\t")
-
-todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "all_smarts_raw_automatic", "-M", "-1"]
+#print(full_df.head())
+new_data = hierarchy_df["SMARTS"]
+#print(new_data.head())
+new_data.to_csv("hierarchy_smarts_automatic", index=None, header=None, sep="\t")
+todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "hierarchy_smarts_automatic", "-M", "-1"]
 process = subprocess.run(todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
-print(process.stdout.decode())
+#print(process.stdout.decode())
 
 
 all_patterns = set()
@@ -91,7 +92,7 @@ for line in process.stdout.decode().split("\n"):
         continue
     first_pattern = line.split(" ")[1].split("\t")[0][1:-1]
     second_pattern = line.split(" ")[3][1:-1]
-    print(first_pattern, second_pattern)
+    #print(first_pattern, second_pattern)
     all_patterns.add(first_pattern)
     all_patterns.add(second_pattern)
     subset_data.append([first_pattern, second_pattern])
@@ -104,11 +105,11 @@ for index,row in full_df.iterrows():
 
 subset_column = []
 subset_indexes = []
-print(subset_data)
+#print(subset_data)
 for subset in subset_data:
-    print(subset)
     first_index = pattern_to_index[subset[0]]
     second_index = pattern_to_index[subset[1]]
+    print(subset,first_index, second_index)
     subset_indexes.append([first_index, second_index])
 
 j = 0
@@ -117,34 +118,37 @@ for i in range(full_df.shape[0]):
     for index_pair in subset_indexes:
         if i == index_pair[1]:
             current_data.append(index_pair[0])
+            print(index_pair)
             j += 1
     subset_column.append(current_data)
 
 full_df["Hierarchy"] = subset_column
 
-with open("smarts/smarts_with_hierarchy.csv", "w") as f:
+with open("smarts_with_hierarchy.csv", "w") as f:
     f.write(citation_string)
-    full_df.to_csv(f, index=None)
+    full_df.to_csv(f)
 
 
 
-functional = pd.read_csv("smarts/functional_groups.csv", skiprows=1)
+functional = pd.read_csv("functional_groups.csv", skiprows=1)
 for index,row in functional.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
+    #print(name,smarts)
     #create_picture(smarts, output_path)
 
-biologicals = pd.read_csv("smarts/biologicals.csv", skiprows=1)
+biologicals = pd.read_csv("biologicals.csv", skiprows=1)
 for index,row in biologicals.iterrows():
     name = row["trivialname"]
     smarts = row["SMARTS"]
     output_path = Path("anki_pics") / (name + ".png")
-    print(name,smarts)
+    #print(name,smarts)
     #create_picture(smarts, output_path)
 
-cyclic = pd.read_csv("smarts/cyclic.csv", skiprows=1)
+sys.exit()
+cyclic = pd.read_csv("cyclic.csv", skiprows=1)
+
 existing_names = []
 i = 0
 for index,row in cyclic.iterrows():

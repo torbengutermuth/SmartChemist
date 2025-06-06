@@ -1,6 +1,62 @@
 # Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
 SMARTS,trivialname,group
-n1cnc(c2c1ncn2)N,Adenine,biological
-CC(C(=O)O)N,Alanine,biological
-CC(C(=O)[N])N,Alanine-peptide,biological
+C1C(=O)NS1(=O)=O,3-Oxo-β-sultam,biological
+O=P(O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,ADP,biological
+O=P(O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,AMP,biological
+O=P(O)(O)OP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,ATP,biological
+CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)O,Acachidonic acid,biological
+Nc1c2ncNc2ncn1,Adenine,biological
+"CC([C$(*-[N,O])]=O)N",Alanine,biological
 [NH2]c1ccccc1,Aniline,biological
+"C(CC([C$(*-[N,O])]=O)N)CNC(=N)N",Arginine,biological
+"O=C(N)CC(N)[C$(*-[N,O])]=O",Asparagine,biological
+"C(C([C$(*-[N,O])]=O)N)C(=O)O",Aspartic acid,biological
+Oc1c(O)ccc(c1)CC[NX3],Catecholamine,biological
+OC(=O)CC(O)(C(=O)O)CC(=O)O,Citric acid,biological
+O=C(NCCS)CCNC(=O)C(O)C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3OP(=O)(O)O,Coenzyme A,biological
+"C(C([C$(*-[N,O])]=O)N)S",Cysteine,biological
+c1cc([nX2]c([nX3H1]1)=O)[NH2X3],Cytosine,biological
+O=COCC1c2ccccc2-c2ccccc21,Fluorenylmethyloxycarbonyl,biological
+O[C@H]1[C@H](O)[C@H](O[C@]1(O)CO)CO,Fructose,biological
+C(=C/C(=O)O)\C(=O)O,Fumaric acid,biological
+O[C@H]1[C@@H](O)[C@H](O[C@H](O)[C@@H]1O)CO,Galactose,biological
+OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O,Glucose,biological
+"C(CC(=O)O)C([C$(*-[N,O])](=O))N",Glutamic acid,biological
+"O=C(N)CCC(N)[C$(*-[N,O])]=O",Glutamine,biological
+"C([C$(*-[N,O])]=O)N",Glycine,biological
+n1c2c(c(nc1N)=O)ncn2,Guanine,biological
+C1=NC2=C(N1C3C(C(C(O3)COP(=O)(O)OP(=O)(O)O)O)O)NC(=NC2=O)N,Guanosine diphosphate,biological
+"O=[C$(*-[N,O])][C@H](CC1=CNC=N1)N",Histidine,biological
+c1cc(ccc1O)O,Hydroquinone,biological
+O=C(O)C(CC(=O)O)C(O)C(=O)O,Isocitric acid,biological
+"CC[C@H](C)C([C$(*-[N,O])]=O)N",Isoleucine,biological
+C([C@@H]1[C@@H]([C@@H]([C@H]([C@@H](O1)O[C@@H]2[C@H](O[C@H]([C@@H]([C@H]2O)O)O)CO)O)O)O)O,Lactose,biological
+"CC(C)CC([C$(*-[N,O])]=O)N",Leucine,biological
+"C(CCN)C[C@@H]([C$(*-[N,O])]=O)N",Lysine,biological
+O=C(O)CC(O)C(=O)O,Malic acid,biological
+O=C(O)CC(=O)O,Malonic acid,biological
+"CSCCC(N)[C$(*-[N,O])]=O",Methionine,biological
+O=C(N)c1ccc[n+](c1)[C@@H]2O[C@@H]([C@@H](O)[C@H]2O)COP([O-])(=O)OP(=O)([O-])OC[C@H]5O[C@@H](n4cnc3c(ncnc34)N)[C@H](O)[C@@H]5O,NAD+,biological
+O=C(N)C1CC=C[N](C=1)[C@@H]2O[C@@H]([C@@H](O)[C@H]2O)COP([O-])(=O)OP(=O)([O-])OC[C@H]5O[C@@H](n4cnc3c(ncnc34)N)[C@H](O)[C@@H]5O,NADH,biological
+c1cc(cnc1)C(=O)N,Nicotinamide,biological
+O=C(O)C(=O)CC(=O)O,Oxaloacetic acid,biological
+"[OH1,O-]c1ccccc1",Phenol,biological
+"c1ccc(cc1)CC([C$(*-[N,O])]=O)N",Phenylalanine,biological
+"C1CC(NC1)[C$(*-[N,O])]=O",Proline,biological
+"C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological
+"O=[C$(*-[N,O])]C(N)C[Se]",Selenocysteine,biological
+"C([C@@H]([C$(*[N,O])]=O)N)O",Serine,biological
+C(=Cc1ccccc1)c1ccccc1,Stilbene,biological
+C(CC(=O)O)C(=O)O,Succinic acid,biological
+O=C(O)CCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3OP(=O)(O)O,Succinyl-CoA,biological
+O1[C@H](CO)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O[C@@]2(O[C@@H]([C@@H](O)[C@@H]2O)CO)CO,Sucrose,biological
+"C[C@H](C([C$(*-[N,O])]=O)N)O",Threonine,biological
+c1([nX3H1]c(c(c[nX3H1]1)C)=O)=O,Thymine,biological
+[CH3]c1ccccc1,Toluene,biological
+"c1nc2ccccc2c1CC(N)[C$(*-[N,O])]=O",Tryptophan,biological
+"NC(Cc1ccc(O)cc1)[C$(*-[N,O])]=O",Tyrosine,biological
+"CC(C)C([C$(*-[N,O])]=O)N",Valine,biological
+[CH3]c1cc(O)ccc1,m-Cresol,biological
+[CH3]c1c(O)cccc1,o-Cresol,biological
+[CH3]c1ccc(O)cc1,p-Cresol,biological
+O=C(O)C(=O)CCC(=O)O,α-Ketoglutaric acid,biological
