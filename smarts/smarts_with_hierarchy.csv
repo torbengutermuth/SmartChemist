@@ -1,23 +1,23 @@
 # Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND 4.0 license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.
 ,SMARTS,trivialname,group,Hierarchy
-0,O=[#6H1X3$(*[#6])][#6H1X3$(*[#6])]=O,"1,2-Dialdehyde",functional_group,"[15, 17, 36]"
-1,O=[#6X3H0$(*([#6])[#6])][#6H1X3$(*[#6])]=O,"1,2-Diketoaldehyde",functional_group,"[15, 36, 85]"
-2,O=[#6X3H0$(*([#6])[#6])][#6X3H0$(*([#6])[#6])]=O,"1,2-Diketone",functional_group,"[15, 36, 85]"
-3,O=[#6H1X3$(*[#6])]*[#6H1X3$(*[#6])]=O,"1,3-Dialdehyde",functional_group,"[15, 17, 36]"
-4,O=[#6X3H0$(*([#6])[#6])]*[#6H1]=O,"1,3-Diketoaldehyde",functional_group,"[15, 36, 85]"
-5,O=[#6X3H0$(*([#6])[#6])]*[#6X3H0$(*([#6])[#6])]=O,"1,3-Diketone",functional_group,"[15, 36, 85]"
-6,O=[#6H1X3$(*[#6])]**[#6H1X3$(*[#6])]=O,"1,4-Dialdehyde",functional_group,"[15, 17, 36]"
-7,O=[#6X3H0$(*([#6])[#6])]**[#6H1]=O,"1,4-Diketoaldehyde",functional_group,"[15, 36, 85]"
-8,O=[#6X3H0$(*([#6])[#6])]**[#6X3H0$(*([#6])[#6])]=O,"1,4-Diketone",functional_group,"[15, 36, 85]"
-9,O=[#6H1X3$(*[#6])]***[#6H1X3$(*[#6])]=O,"1,5-Dialdehyde",functional_group,"[15, 17, 36]"
-10,O=[#6X3H0$(*([#6])[#6])]***[#6H1]=O,"1,5-Diketoaldehyde",functional_group,"[15, 36, 85]"
-11,O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_group,"[15, 36, 85]"
+0,O=[#6H1X3$(*[#6])][#6H1X3$(*[#6])]=O,"1,2-Dialdehyde",functional_group,"[17, 36]"
+1,O=[#6X3H0$(*([#6])[#6])][#6H1X3$(*[#6])]=O,"1,2-Diketoaldehyde",functional_group,"[36, 85]"
+2,O=[#6X3H0$(*([#6])[#6])][#6X3H0$(*([#6])[#6])]=O,"1,2-Diketone",functional_group,"[36, 85]"
+3,O=[#6H1X3$(*[#6])]*[#6H1X3$(*[#6])]=O,"1,3-Dialdehyde",functional_group,"[17, 36]"
+4,O=[#6X3H0$(*([#6])[#6])]*[#6H1]=O,"1,3-Diketoaldehyde",functional_group,"[36, 85]"
+5,O=[#6X3H0$(*([#6])[#6])]*[#6X3H0$(*([#6])[#6])]=O,"1,3-Diketone",functional_group,"[36, 85]"
+6,O=[#6H1X3$(*[#6])]**[#6H1X3$(*[#6])]=O,"1,4-Dialdehyde",functional_group,"[17, 36]"
+7,O=[#6X3H0$(*([#6])[#6])]**[#6H1]=O,"1,4-Diketoaldehyde",functional_group,"[36, 85]"
+8,O=[#6X3H0$(*([#6])[#6])]**[#6X3H0$(*([#6])[#6])]=O,"1,4-Diketone",functional_group,"[36, 85]"
+9,O=[#6H1X3$(*[#6])]***[#6H1X3$(*[#6])]=O,"1,5-Dialdehyde",functional_group,"[17, 36]"
+10,O=[#6X3H0$(*([#6])[#6])]***[#6H1]=O,"1,5-Diketoaldehyde",functional_group,"[36, 85]"
+11,O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_group,"[36, 85]"
 12,"[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8$(*([#6])[#6])]",Acetal,functional_group,[]
 13,[#6H3][#6]=O,Acetyl,functional_group,"[36, 89]"
 14,[#6]#[#6],Acetylene,functional_group,[]
-15,"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])",Acyl group,functional_group,[]
-16,"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])-[F,Cl,Br,I]",Acyl halide,functional_group,[15]
-17,[#6H1X3$(*[#6])]=O,Aldehyde,functional_group,"[15, 36]"
+15,"[#6,#15,#16;X3$(*[#6])+0]=[#8,#7,#15,#16;+0]",Acyl group,functional_group,[]
+16,"[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])-[F,Cl,Br,I]",Acyl halide,functional_group,[15]
+17,[#6H1X3$(*[#6])]=O,Aldehyde,functional_group,[36]
 18,"[N$(*-[#6,#1])]=[CH1$(*[#6,#1])]",Aldimine,functional_group,[]
 19,[#6H1]=N-[O;H1],Aldoxime,functional_group,"[73, 103]"
 20,[#7]-[OH0],Alkoxyamine,functional_group,[]
@@ -44,7 +44,7 @@
 41,[N]#[#6]-[O$(*([#6])[#6])],Cyanate,functional_group,"[42, 95]"
 42,[#7]#[CX2],Cyanide,functional_group,[95]
 43,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Decyl,functional_group,"[34, 64, 68, 69, 89, 100, 101, 104, 115]"
-44,"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])-[NX3]-[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])",Diacylamine,functional_group,[15]
+44,"[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])-[NX3]-[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])",Diacylamine,functional_group,[15]
 45,[#6]=[N+]=[N-X1],Diazo,functional_group,[]
 46,[#6](Br)Br,Dibromomethyl,functional_group,"[33, 49]"
 47,[#6](Cl)Cl,Dichloromethyl,functional_group,"[40, 49]"
@@ -56,7 +56,7 @@
 53,"[#16$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#16$(*([#6])[#6])]",Dithioacetal,functional_group,[]
 54,[#6](-[#6])(-[#6])(SC)SC,Dithioketal,functional_group,[53]
 55,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Dodecyl,functional_group,"[34, 43, 64, 68, 69, 89, 100, 101, 104, 115, 157]"
-56,[#6H1](=O)[#6]=[#6],Enal,functional_group,"[15, 17, 36]"
+56,[#6H1](=O)[#6]=[#6],Enal,functional_group,"[17, 36]"
 57,[#6X3](=[#6X3])-[NX3],Enamine,functional_group,[]
 58,"[OH1,O-][#6X3]=[#6X3]",Enol,functional_group,[73]
 59,[#6]O[#6X3]=[#6X3],Enolether,functional_group,[]
@@ -85,7 +85,7 @@
 82,[NX3]=[#6]=[SX1],Isothiocyanate,functional_group,[]
 83,[#6](-[#6])(-[#6])(OC)OC,Ketal,functional_group,[12]
 84,"[N$(*-[#6,#1])]=C=[C$(*([#6])[#6])]",Ketenimine,functional_group,[]
-85,[#6X3H0$(*([#6])[#6])]=O,Ketone,functional_group,"[15, 36]"
+85,[#6X3H0$(*([#6])[#6])]=O,Ketone,functional_group,[36]
 86,[#6H0]=N-[O;H1],Ketoxime,functional_group,"[73, 103]"
 87,[#6H0R](=O)@[#7;X3;R],Lactam,functional_group,[36]
 88,[#6H0R](=O)@[#8;X2;R],Lactone,functional_group,[36]
@@ -117,7 +117,7 @@
 114,"[#7X3H2$(*[#6]),#7X4+H3$(*[#6])]",Primary Amine,functional_group,[]
 115,[#6H3X4]-[#6X4H2]-[#6X4H2],Propyl,functional_group,"[64, 89]"
 116,[NX4+H0],Quartenary Amine,functional_group,[]
-117,[NX2]=C1C=CC=CC1=[NX2],Quinoneimine,functional_group,[15]
+117,[NX2]=C1C=CC=CC1=[NX2],Quinoneimine,functional_group,[]
 118,[SX2][NX2]=O,S-nitrosothiol,functional_group,[99]
 119,"[#7X3H1$(*([#6])[#6]),#7X4+H2$(*([#6])[#6])]",Secondary Amine,functional_group,[]
 120,[Se$(*([#6][#6]))],Selenide,functional_group,[]
@@ -140,7 +140,7 @@
 137,[SX4R](=O)(=O)[NX3],Sultam,functional_group,[]
 138,[CX4](-[CH3X4])(-[CH3X4])-[CH3X4],Tertbutyl,functional_group,[89]
 139,"[#7X3H0$(*([#6])([#6])[#6]),#7X4+H1$(*([#6])([#6])[#6])]",Tertiary Amine,functional_group,[]
-140,[#6H1X3$(*[#6])]=S,Thioaldehyde,functional_group,[15]
+140,[#6H1X3$(*[#6])]=S,Thioaldehyde,functional_group,[]
 141,[#6H1X3$(*[#6])]=S=O,Thioaldehyde S-oxide,functional_group,"[15, 140]"
 142,[#6!R](=S)[#7X3],Thioamide,functional_group,[]
 143,"[#6$(*-,=S)](=[O,S])([NX3])-[O,S]",Thiocarbamate,functional_group,[]
@@ -148,7 +148,7 @@
 145,[N]#[#6]-[SX2$(*([#6])[#6])],Thiocyanate,functional_group,"[42, 95]"
 146,[#6](=O)[#16X2$(*([#6])[#6])],Thioester,functional_group,[36]
 147,"[#8,#16$(*([#6])[#6])][#6$(*[#16])]([#6,#1])([#6,#1])[#8H1,#16H1]",Thiohemiacetal,functional_group,[]
-148,[#6X3$(*(C)C)]=S,Thioketone,functional_group,[15]
+148,[#6X3$(*(C)C)]=S,Thioketone,functional_group,[]
 149,"[SH1,SH0-]",Thiol,functional_group,[]
 150,[#6H0R](=S)@[#7;X3;R],Thiolactam,functional_group,[]
 151,[#16H0R](=O)@[#8;X2;R],Thiolactone,functional_group,[]
@@ -40885,59 +40885,59 @@
 40882,C1=CC=C2C(=C1)C3=CC=CC=C3C(=O)NC4=CC=CC=C24,"tribenzo[b,d,f]azocin-10(9H)-one",cyclic,[]
 40883,C12=NNN=C1N=NNC2=O,"v-Triazolo[5,4-d]-v-triazin-7(6H)-one",cyclic,[]
 40884,C1=NC2=C3N1OP4(=O)ON2C(=O)N(C3=O)O4,xanthine-S'-monophosphate,cyclic,[]
-40885,C1C(=O)NS1(=O)=O,3-Oxo-β-sultam,biological,"[15, 36]"
+40885,C1C(=O)NS1(=O)=O,3-Oxo-β-sultam,biological,[36]
 40886,O=P(O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,ADP,biological,[139]
 40887,O=P(O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,AMP,biological,[139]
 40888,O=P(O)(O)OP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3O,ATP,biological,[139]
-40889,CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)O,Acachidonic acid,biological,"[15, 36]"
+40889,CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)O,Acachidonic acid,biological,[36]
 40890,Nc1c2ncNc2ncn1,Adenine,biological,[]
 40891,"CC([C$(*-[N,O])]=O)N",Alanine,biological,"[36, 40908]"
 40892,[NH2]c1ccccc1,Aniline,biological,[]
 40893,"C(CC([C$(*-[N,O])]=O)N)CNC(=N)N",Arginine,biological,"[36, 40891, 40908]"
-40894,"O=C(N)CC(N)[C$(*-[N,O])]=O",Asparagine,biological,"[15, 36, 40891, 40908]"
-40895,"C(C([C$(*-[N,O])]=O)N)C(=O)O",Aspartic acid,biological,"[15, 36, 40891, 40908]"
+40894,"O=C(N)CC(N)[C$(*-[N,O])]=O",Asparagine,biological,"[36, 40891, 40908]"
+40895,"C(C([C$(*-[N,O])]=O)N)C(=O)O",Aspartic acid,biological,"[36, 40891, 40908]"
 40896,Oc1c(O)ccc(c1)CC[NX3],Catecholamine,biological,[]
-40897,OC(=O)CC(O)(C(=O)O)CC(=O)O,Citric acid,biological,"[15, 36, 40918, 40933]"
-40898,O=C(NCCS)CCNC(=O)C(O)C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3OP(=O)(O)O,Coenzyme A,biological,"[15, 36, 139]"
+40897,OC(=O)CC(O)(C(=O)O)CC(=O)O,Citric acid,biological,"[36, 40918, 40933]"
+40898,O=C(NCCS)CCNC(=O)C(O)C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3OP(=O)(O)O,Coenzyme A,biological,"[36, 139]"
 40899,"C(C([C$(*-[N,O])]=O)N)S",Cysteine,biological,"[36, 40891, 40908]"
 40900,c1cc([nX2]c([nX3H1]1)=O)[NH2X3],Cytosine,biological,"[36, 87, 114, 119]"
 40901,O=COCC1c2ccccc2-c2ccccc21,Fluorenylmethyloxycarbonyl,biological,[36]
 40902,O[C@H]1[C@H](O)[C@H](O[C@]1(O)CO)CO,Fructose,biological,[]
-40903,C(=C/C(=O)O)\C(=O)O,Fumaric acid,biological,"[15, 36]"
+40903,C(=C/C(=O)O)\C(=O)O,Fumaric acid,biological,[36]
 40904,O[C@H]1[C@@H](O)[C@H](O[C@H](O)[C@@H]1O)CO,Galactose,biological,[]
 40905,OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O,Glucose,biological,[]
-40906,"C(CC(=O)O)C([C$(*-[N,O])](=O))N",Glutamic acid,biological,"[15, 36, 40891, 40908]"
-40907,"O=C(N)CCC(N)[C$(*-[N,O])]=O",Glutamine,biological,"[15, 36, 40891, 40908]"
+40906,"C(CC(=O)O)C([C$(*-[N,O])](=O))N",Glutamic acid,biological,"[36, 40891, 40908]"
+40907,"O=C(N)CCC(N)[C$(*-[N,O])]=O",Glutamine,biological,"[36, 40891, 40908]"
 40908,"C([C$(*-[N,O])]=O)N",Glycine,biological,[36]
-40909,n1c2c(c(nc1N)=O)ncn2,Guanine,biological,"[15, 36]"
-40910,C1=NC2=C(N1C3C(C(C(O3)COP(=O)(O)OP(=O)(O)O)O)O)NC(=NC2=O)N,Guanosine diphosphate,biological,"[15, 36]"
+40909,n1c2c(c(nc1N)=O)ncn2,Guanine,biological,[36]
+40910,C1=NC2=C(N1C3C(C(C(O3)COP(=O)(O)OP(=O)(O)O)O)O)NC(=NC2=O)N,Guanosine diphosphate,biological,[36]
 40911,"O=[C$(*-[N,O])][C@H](CC1=CNC=N1)N",Histidine,biological,"[36, 40891, 40908]"
 40912,c1cc(ccc1O)O,Hydroquinone,biological,[]
-40913,O=C(O)C(CC(=O)O)C(O)C(=O)O,Isocitric acid,biological,"[15, 36, 40918, 40933]"
+40913,O=C(O)C(CC(=O)O)C(O)C(=O)O,Isocitric acid,biological,"[36, 40918, 40933]"
 40914,"CC[C@H](C)C([C$(*-[N,O])]=O)N",Isoleucine,biological,"[36, 40891, 40908, 40941]"
 40915,C([C@@H]1[C@@H]([C@@H]([C@H]([C@@H](O1)O[C@@H]2[C@H](O[C@H]([C@@H]([C@H]2O)O)O)CO)O)O)O)O,Lactose,biological,[]
 40916,"CC(C)CC([C$(*-[N,O])]=O)N",Leucine,biological,"[36, 40891, 40908]"
 40917,"C(CCN)C[C@@H]([C$(*-[N,O])]=O)N",Lysine,biological,"[36, 40891, 40908]"
-40918,O=C(O)CC(O)C(=O)O,Malic acid,biological,"[15, 36, 40933]"
-40919,O=C(O)CC(=O)O,Malonic acid,biological,"[15, 36]"
+40918,O=C(O)CC(O)C(=O)O,Malic acid,biological,"[36, 40933]"
+40919,O=C(O)CC(=O)O,Malonic acid,biological,[36]
 40920,"CSCCC(N)[C$(*-[N,O])]=O",Methionine,biological,"[36, 40891, 40908]"
-40921,O=C(N)c1ccc[n+](c1)[C@@H]2O[C@@H]([C@@H](O)[C@H]2O)COP([O-])(=O)OP(=O)([O-])OC[C@H]5O[C@@H](n4cnc3c(ncnc34)N)[C@H](O)[C@@H]5O,NAD+,biological,"[15, 36, 73, 139, 160, 40923]"
-40922,O=C(N)C1CC=C[N](C=1)[C@@H]2O[C@@H]([C@@H](O)[C@H]2O)COP([O-])(=O)OP(=O)([O-])OC[C@H]5O[C@@H](n4cnc3c(ncnc34)N)[C@H](O)[C@@H]5O,NADH,biological,"[15, 36, 73, 139, 160]"
-40923,c1cc(cnc1)C(=O)N,Nicotinamide,biological,"[15, 36]"
-40924,O=C(O)C(=O)CC(=O)O,Oxaloacetic acid,biological,"[15, 36, 85, 40933]"
+40921,O=C(N)c1ccc[n+](c1)[C@@H]2O[C@@H]([C@@H](O)[C@H]2O)COP([O-])(=O)OP(=O)([O-])OC[C@H]5O[C@@H](n4cnc3c(ncnc34)N)[C@H](O)[C@@H]5O,NAD+,biological,"[36, 73, 139, 160, 40923]"
+40922,O=C(N)C1CC=C[N](C=1)[C@@H]2O[C@@H]([C@@H](O)[C@H]2O)COP([O-])(=O)OP(=O)([O-])OC[C@H]5O[C@@H](n4cnc3c(ncnc34)N)[C@H](O)[C@@H]5O,NADH,biological,"[36, 73, 139, 160]"
+40923,c1cc(cnc1)C(=O)N,Nicotinamide,biological,[36]
+40924,O=C(O)C(=O)CC(=O)O,Oxaloacetic acid,biological,"[36, 85, 40933]"
 40925,"[OH1,O-]c1ccccc1",Phenol,biological,[73]
 40926,"c1ccc(cc1)CC([C$(*-[N,O])]=O)N",Phenylalanine,biological,"[36, 40891, 40908]"
 40927,"C1CC(NC1)[C$(*-[N,O])]=O",Proline,biological,"[36, 40891, 40908]"
-40928,"C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological,"[15, 36, 40891, 40908, 40941]"
-40929,C1=CC=C(C=C1)C2=C3C=CC(=[NH2+])C=C3OC4=C2C=CC(=C4)N,Rhodamine,biological,[15]
+40928,"C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological,"[36, 40891, 40908, 40941]"
+40929,C1=CC=C(C=C1)C2=C3C=CC(=[NH2+])C=C3OC4=C2C=CC(=C4)N,Rhodamine,biological,[]
 40930,"O=[C$(*-[N,O])]C(N)C[Se]",Selenocysteine,biological,"[36, 120, 40891, 40908]"
 40931,"C([C@@H]([C$(*[N,O])]=O)N)O",Serine,biological,"[36, 40891, 40908]"
 40932,C(=Cc1ccccc1)c1ccccc1,Stilbene,biological,[]
-40933,C(CC(=O)O)C(=O)O,Succinic acid,biological,"[15, 36]"
-40934,O=C(O)CCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3OP(=O)(O)O,Succinyl-CoA,biological,"[15, 36, 139, 144]"
+40933,C(CC(=O)O)C(=O)O,Succinic acid,biological,[36]
+40934,O=C(O)CCC(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@H]3O[C@@H](n2cnc1c(ncnc12)N)[C@H](O)[C@@H]3OP(=O)(O)O,Succinyl-CoA,biological,"[36, 139, 144]"
 40935,O1[C@H](CO)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O[C@@]2(O[C@@H]([C@@H](O)[C@@H]2O)CO)CO,Sucrose,biological,"[12, 83]"
 40936,"C[C@H](C([C$(*-[N,O])]=O)N)O",Threonine,biological,"[36, 40891, 40908]"
-40937,c1([nX3H1]c(c(c[nX3H1]1)C)=O)=O,Thymine,biological,"[15, 36, 87, 119, 158]"
+40937,c1([nX3H1]c(c(c[nX3H1]1)C)=O)=O,Thymine,biological,"[36, 87, 119, 158]"
 40938,[CH3]c1ccccc1,Toluene,biological,[89]
 40939,"c1nc2ccccc2c1CC(N)[C$(*-[N,O])]=O",Tryptophan,biological,"[36, 40891, 40908]"
 40940,"NC(Cc1ccc(O)cc1)[C$(*-[N,O])]=O",Tyrosine,biological,"[36, 40891, 40908, 40926]"
@@ -40945,4 +40945,4 @@
 40942,[CH3]c1cc(O)ccc1,m-Cresol,biological,"[89, 40938]"
 40943,[CH3]c1c(O)cccc1,o-Cresol,biological,"[89, 40938]"
 40944,[CH3]c1ccc(O)cc1,p-Cresol,biological,"[89, 40938]"
-40945,O=C(O)C(=O)CCC(=O)O,α-Ketoglutaric acid,biological,"[15, 36, 85]"
+40945,O=C(O)C(=O)CCC(=O)O,α-Ketoglutaric acid,biological,"[36, 85]"

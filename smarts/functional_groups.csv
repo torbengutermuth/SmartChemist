@@ -15,8 +15,8 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 "[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8$(*([#6])[#6])]",Acetal,functional_group
 [#6H3][#6]=O,Acetyl,functional_group
 [#6]#[#6],Acetylene,functional_group
-"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])",Acyl group,functional_group
-"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])-[F,Cl,Br,I]",Acyl halide,functional_group
+"[#6,#15,#16;X3$(*[#6])+0]=[#8,#7,#15,#16;+0]",Acyl group,functional_group
+"[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])-[F,Cl,Br,I]",Acyl halide,functional_group
 [#6H1X3$(*[#6])]=O,Aldehyde,functional_group
 "[N$(*-[#6,#1])]=[CH1$(*[#6,#1])]",Aldimine,functional_group
 [#6H1]=N-[O;H1],Aldoxime,functional_group
@@ -44,7 +44,7 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [N]#[#6]-[O$(*([#6])[#6])],Cyanate,functional_group
 [#7]#[CX2],Cyanide,functional_group
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Decyl,functional_group
-"[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])-[NX3]-[#6,#15,#16;X3$(*[#6])](=[#8,#7,#15,#16])",Diacylamine,functional_group
+"[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])-[NX3]-[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])",Diacylamine,functional_group
 [#6]=[N+]=[N-X1],Diazo,functional_group
 [#6](Br)Br,Dibromomethyl,functional_group
 [#6](Cl)Cl,Dichloromethyl,functional_group
