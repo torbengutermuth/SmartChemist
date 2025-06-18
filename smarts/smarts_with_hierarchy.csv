@@ -66,7 +66,7 @@
 63,[O!RX2H0$(*([#6])[#6])],Ether,functional_group,[]
 64,[#6H3X4]-[#6X4H2],Ethyl,functional_group,[89]
 65,[FX1],Fluorine,functional_group,[]
-66,[NH1X3][CX3](=[NH1])[NH2],Guanidine,functional_group,[]
+66,"[NX3$(*[#1,#6])][CX3](=[N$(*[#1,#6])])[NX3$(*[#1,#6])]",Guanidine,functional_group,[]
 67,"[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8H1]",Hemiacetal,functional_group,[73]
 68,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Heptyl,functional_group,"[34, 64, 69, 89, 104, 115]"
 69,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Hexyl,functional_group,"[34, 64, 89, 104, 115]"
@@ -40929,7 +40929,7 @@
 40926,"c1ccc(cc1)CC([C$(*-[N,O])]=O)N",Phenylalanine,biological,"[36, 40891, 40908]"
 40927,"C1CC(NC1)[C$(*-[N,O])]=O",Proline,biological,"[36, 40891, 40908]"
 40928,"C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological,"[36, 40891, 40908, 40941]"
-40929,C1=CC=C(C=C1)C2=C3C=CC(=[NH2+])C=C3OC4=C2C=CC(=C4)N,Rhodamine,biological,[]
+40929,c1ccc(cc1)c2c3ccc(=[#7+])cc3oc4c2ccc(c4)[#7],Rhodamine,biological,[]
 40930,"O=[C$(*-[N,O])]C(N)C[Se]",Selenocysteine,biological,"[36, 120, 40891, 40908]"
 40931,"C([C@@H]([C$(*[N,O])]=O)N)O",Serine,biological,"[36, 40891, 40908]"
 40932,C(=Cc1ccccc1)c1ccccc1,Stilbene,biological,[]

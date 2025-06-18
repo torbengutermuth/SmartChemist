@@ -66,7 +66,7 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [O!RX2H0$(*([#6])[#6])],Ether,functional_group
 [#6H3X4]-[#6X4H2],Ethyl,functional_group
 [FX1],Fluorine,functional_group
-[NH1X3][CX3](=[NH1])[NH2],Guanidine,functional_group
+"[NX3$(*[#1,#6])][CX3](=[N$(*[#1,#6])])[NX3$(*[#1,#6])]",Guanidine,functional_group
 "[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8H1]",Hemiacetal,functional_group
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Heptyl,functional_group
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Hexyl,functional_group

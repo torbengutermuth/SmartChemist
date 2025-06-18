@@ -44,7 +44,7 @@ O=C(O)C(=O)CC(=O)O,Oxaloacetic acid,biological
 "c1ccc(cc1)CC([C$(*-[N,O])]=O)N",Phenylalanine,biological
 "C1CC(NC1)[C$(*-[N,O])]=O",Proline,biological
 "C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological
-C1=CC=C(C=C1)C2=C3C=CC(=[NH2+])C=C3OC4=C2C=CC(=C4)N,Rhodamine,biological
+c1ccc(cc1)c2c3ccc(=[#7+])cc3oc4c2ccc(c4)[#7],Rhodamine,biological
 "O=[C$(*-[N,O])]C(N)C[Se]",Selenocysteine,biological
 "C([C@@H]([C$(*[N,O])]=O)N)O",Serine,biological
 C(=Cc1ccccc1)c1ccccc1,Stilbene,biological
