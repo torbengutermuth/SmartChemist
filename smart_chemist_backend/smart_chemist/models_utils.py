@@ -36,7 +36,6 @@ def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) ->
         N1C2C(NCCCC2)CC1 Poster Example,
         C(=Cc1ccccc1)c1ccccc1 Poster Example,
         o1c2nnccc2cc1 Poster Example,
-        C(=C/C(=O)O)\C(=O)O Poster Example,
         n1ncc2nccccc12 Poster Example,
         CNC(N)=N Poster Example,
         N1C2C(NCC2)CC1 Poster Example,
