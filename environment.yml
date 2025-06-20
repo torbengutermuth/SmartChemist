@@ -4,9 +4,14 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - rdkit
-  - anaconda::redis
-  - conda-forge::celery
-  - conda-forge::djangorestframework
-  - conda-forge::gunicorn
-  - conda-forge::drf-spectacular
+  - python=3.9
+  - rdkit=2025.03.3
+  - redis-server=7.4.0
+  - celery=5.5.3
+  - drf-spectacular=0.28.0
+  - gunicorn=23.0.0
+  - django=4.2.23
+  - pip=25.1.1
+  - pip:
+    - redis==6.2.0
+
