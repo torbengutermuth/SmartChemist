@@ -57,7 +57,7 @@ class SmartChemist:
                 for submatch in matches:
                     atoms_submatch = submatch["atom_indices"]
                     submatch_id = submatch["trivial_name"]["index"]
-                    if submatch_id is "":
+                    if submatch_id == "":
                         continue
                     if submatch_id in hierarchy_pattern_indexes and atoms_submatch[0] in atoms_match:
                         submatch["trivial_name"]["group"] = "overshadowed"
