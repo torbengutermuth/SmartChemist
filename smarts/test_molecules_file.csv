@@ -1,0 +1,23 @@
+smiles,pattern,matching,comment,atomindices
+O=CC=O,"1,2-Dialdehyde",True,,
+O=C(C)C(C)=O,"1,2-Dialdehyde",False,Shouldnt match the ketone version,
+O=CC=O,"1,2-Dialdehyde",True,,"[(0,1,2,3)]"
+O=CCC=O,"1,3-Dialdehyde",True,,
+O=C(C)CC(C)=O,"1,3-Dialdehyde",False,Shouldnt match the ketone version,
+O=CCC=O,"1,3-Dialdehyde",True,,"[(0,1,2,3,4)]"
+O=CCCC=O,"1,4-Dialdehyde",True,,
+O=C(C)CCC(C)=O,"1,4-Dialdehyde",False,Shouldnt match the ketone version,
+O=CCCC=O,"1,4-Dialdehyde",True,,"[(0,1,2,3,4,5)]"
+O=CCCCC=O,"1,5-Dialdehyde",True,,
+O=C(C)CCCC(C)=O,"1,5-Dialdehyde",False,Shouldnt match the ketone version,
+O=CCCCC=O,"1,5-Dialdehyde",True,,"[(0,1,2,3,4,5,6)]"
+O=C(C)C=O,"1,2-Diketoaldehyde",True,,
+O=C(C)CC=O,"1,3-Diketoaldehyde",True,,
+O=C(C)CCC=O,"1,4-Diketoaldehyde",True,,
+O=C(C)CCCC=O,"1,5-Diketoaldehyde",True,,
+O=C(C)C(C)=O,"1,2-Diketone",True,,
+O=C(C)CC(C)=O,"1,3-Diketone",True,,
+O=C(C)CCC(C)=O,"1,4-Diketone",True,,
+O=C(C)CCCC(C)=O,"1,5-Diketone",True,,
+O=C(C)Oc1ccccc1C(=O)O,Acetyl,True,Excessively promiscuous patterns #8,
+O=C(C)Oc1ccccc1C(=O)O,"1,5-Diketone",False,Excessively promiscuous patterns #8,
