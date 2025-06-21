@@ -1,0 +1,28 @@
+name: Python Unittest with Conda to test the correct matching of SMARTS patterns
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+
+    - name: Add conda to system path
+      run: echo "$CONDA/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies from environment.yml
+      run: conda env update --file environment.yml --name base
+
+    - name: Run unittests
+      run: |
+        python -m unittest discover -s smarts -p "*.py"
