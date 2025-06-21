@@ -20,3 +20,13 @@ def check_expected_atom_matches(
         if not hit_atom_indices_list[i] == exp_atom_indices:
             return False
     return True
+
+
+def check_smiles_smarts_matching(smiles: str, pattern_str: str) -> bool:
+    mol = MolFromSmiles(smiles)
+    if not mol:
+        return False
+    pattern = Chem.MolFromSmarts(pattern_str)
+    if not pattern:
+        return False
+    return mol.HasSubstructMatch(pattern, useChirality=True)
