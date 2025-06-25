@@ -164,4 +164,3 @@ O=[PX4][#7X3],Phosphoramide,functional_group
 [#7X3][#6X3](=O)[#7X3],Urea,functional_group
 [CX3H1]=[CH2],Vinyl,functional_group
 "[!#6,+]-[-]",Ylide,functional_group
-"[#6,#16X2;$(*[#6])+0]",Testing,functional_group"
