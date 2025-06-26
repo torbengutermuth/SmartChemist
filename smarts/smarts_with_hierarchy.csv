@@ -79,8 +79,8 @@
 76,"[#8H1,#8H0-]",Hydroxy,functional_group,[]
 77,"[#7X3]-[OH1,O-]",Hydroxylamine,functional_group,[76]
 78,"[#6,#15,#16](=[#8,#7,#15,#16])-[NX3R]-[#6,#15,#16](=[#8,#7,#15,#16])",Imide,functional_group,[]
-79,[#6X3$(*[#6])]=[#7X2+0],Imine,functional_group,[15]
-80,[#6X3$(*[#6])]=[#7X3+1],Iminium,functional_group,[15]
+79,[#6X3$(*[#6])]=[#7X2],Imine,functional_group,[15]
+80,[#6X3$(*[#6])]=[#7X3],Iminium,functional_group,[15]
 81,[I],Iodine,functional_group,[]
 82,[NX2]=[#6]=O,Isocyanate,functional_group,[36]
 83,[#7+]#[C-],Isocyanide,functional_group,[98]
@@ -120,7 +120,7 @@
 117,"[#7X3H2$(*[#6]),#7X4+H3$(*[#6])]",Primary Amine,functional_group,[]
 118,[#6H3X4]-[#6X4H2]-[#6X4H2],Propyl,functional_group,"[64, 92]"
 119,[NX4+H0],Quartenary Amine,functional_group,[]
-120,[NX2]=C1C=CC=CC1=[NX2],Quinoneimine,functional_group,[15]
+120,[NX2]=C1C=CC=CC1=[NX2],Quinoneimine,functional_group,"[15, 79]"
 121,[SX2][NX2]=O,S-nitrosothiol,functional_group,[102]
 122,"[#7X3H1$(*([#6])[#6]),#7X4+H2$(*([#6])[#6])]",Secondary Amine,functional_group,[]
 123,[Se$(*([#6][#6]))],Selenide,functional_group,[]

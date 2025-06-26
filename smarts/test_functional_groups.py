@@ -49,6 +49,7 @@ class FunctionGroupPatternTest(unittest.TestCase):
         index_ketone = self.get_index_of_pattern("Ketone")
         index_imine = self.get_index_of_pattern("Imine")
         index_iminium = self.get_index_of_pattern("Iminium")
+        index_quinoneimine = self.get_index_of_pattern("Quinoneimine")
         self.assertTrue(self.assure_hierarchy_exists(index_ketone, index_carbonyl))
         self.assertTrue(self.assure_hierarchy_exists(index_carboxyl, index_carbonyl))
         self.assertTrue(self.assure_hierarchy_exists(index_aldehyde, index_carbonyl))
@@ -57,6 +58,8 @@ class FunctionGroupPatternTest(unittest.TestCase):
         self.assertTrue(self.assure_hierarchy_exists(index_imine, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_iminium, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_acyl_halide, index_acyl))
+        self.assertTrue(self.assure_hierarchy_exists(index_quinoneimine, index_imine))
+
 
 
 if __name__ == "__main__":
