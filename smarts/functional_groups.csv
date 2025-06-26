@@ -15,8 +15,8 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 "[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8$(*([#6])[#6])]",Acetal,functional_group
 [#6H3][#6]=O,Acetyl,functional_group
 [#6]#[#6],Acetylene,functional_group
-"[#6X3,#16X4,#15X4;+0$(*[#6])]=[#8,#7,#16+0]",Acyl group,functional_group
-"[F,Cl,Br,I]-[#6X3,#16X4,#15X4;+0$(*[#6])]=[#8,#7,#16+0]",Acyl halide,functional_group
+"[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl group,functional_group
+"[F,Cl,Br,I]-[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl halide,functional_group
 [#6H1X3$(*[#6])]=O,Aldehyde,functional_group
 "[N$(*-[#6,#1])]=[CH1$(*[#6])]",Aldimine,functional_group
 [#6H1]=N-[O;H1],Aldoxime,functional_group
@@ -79,8 +79,8 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 "[#8H1,#8H0-]",Hydroxy,functional_group
 "[#7X3]-[OH1,O-]",Hydroxylamine,functional_group
 "[#6,#15,#16](=[#8,#7,#15,#16])-[NX3R]-[#6,#15,#16](=[#8,#7,#15,#16])",Imide,functional_group
-"[#7X2]=[#6$(*([#6,#1])[#6,#1])]",Imine,functional_group
-"[#7X3+]=[#6$(*([#6,#1])[#6,#1])]",Iminium,functional_group
+[#6X3$(*[#6])]=[#7X2+0],Imine,functional_group
+[#6X3$(*[#6])]=[#7X3+1],Iminium,functional_group
 [I],Iodine,functional_group
 [NX2]=[#6]=O,Isocyanate,functional_group
 [#7+]#[C-],Isocyanide,functional_group
