@@ -42,6 +42,7 @@ c1cc(cnc1)C(=O)N,Nicotinamide,biological
 O=C(O)C(=O)CC(=O)O,Oxaloacetic acid,biological
 "[OH1,O-]c1ccccc1",Phenol,biological
 "c1ccc(cc1)CC([C$(*-[N,O])]=O)N",Phenylalanine,biological
+CC(C)(O)C(C)(C)O,Pinacol,biological
 "C1CC(NC1)[C$(*-[N,O])]=O",Proline,biological
 "C[C@@H]1CC=N[C@H]1C(=O)NCCCCC([C$(*-[N,O])]=O)N",Pyrrolysine,biological
 c1ccc(cc1)c2c3ccc(=[#7+])cc3oc4c2ccc(c4)[#7],Rhodamine,biological
