@@ -15,8 +15,8 @@
 12,"[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8$(*([#6])[#6])]",Acetal,functional_group,[]
 13,[#6H3][#6]=O,Acetyl,functional_group,"[36, 92]"
 14,[#6]#[#6],Acetylene,functional_group,[]
-15,"[#6X3,#16X4,#15X4;+0$(*[#6])]=[#8,#7,#16+0]",Acyl group,functional_group,[]
-16,"[F,Cl,Br,I]-[#6X3,#16X4,#15X4;+0$(*[#6])]=[#8,#7,#16+0]",Acyl halide,functional_group,[15]
+15,"[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl group,functional_group,[]
+16,"[F,Cl,Br,I]-[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl halide,functional_group,[15]
 17,[#6H1X3$(*[#6])]=O,Aldehyde,functional_group,"[15, 36]"
 18,"[N$(*-[#6,#1])]=[CH1$(*[#6])]",Aldimine,functional_group,[15]
 19,[#6H1]=N-[O;H1],Aldoxime,functional_group,"[76, 106]"
@@ -79,8 +79,8 @@
 76,"[#8H1,#8H0-]",Hydroxy,functional_group,[]
 77,"[#7X3]-[OH1,O-]",Hydroxylamine,functional_group,[76]
 78,"[#6,#15,#16](=[#8,#7,#15,#16])-[NX3R]-[#6,#15,#16](=[#8,#7,#15,#16])",Imide,functional_group,[]
-79,"[#7X2]=[#6$(*([#6,#1])[#6,#1])]",Imine,functional_group,[]
-80,"[#7X3+]=[#6$(*([#6,#1])[#6,#1])]",Iminium,functional_group,[]
+79,[#6X3$(*[#6])]=[#7X2],Imine,functional_group,[15]
+80,[#6X3$(*[#6])]=[#7X3],Iminium,functional_group,[15]
 81,[I],Iodine,functional_group,[]
 82,[NX2]=[#6]=O,Isocyanate,functional_group,[36]
 83,[#7+]#[C-],Isocyanide,functional_group,[98]
@@ -143,7 +143,7 @@
 140,[SX4R](=O)(=O)[NX3],Sultam,functional_group,[]
 141,[CX4](-[CH3X4])(-[CH3X4])-[CH3X4],Tertbutyl,functional_group,[92]
 142,"[#7X3H0$(*([#6])([#6])[#6]),#7X4+H1$(*([#6])([#6])[#6])]",Tertiary Amine,functional_group,[]
-143,[#6H1X3$(*[#6])]=S,Thioaldehyde,functional_group,[]
+143,[#6H1X3$(*[#6])]=S,Thioaldehyde,functional_group,[15]
 144,[#6H1X3$(*[#6])]=S=O,Thioaldehyde S-oxide,functional_group,"[15, 143]"
 145,[#6!R](=S)[#7X3],Thioamide,functional_group,[]
 146,"[#6$(*-,=S)](=[O,S])([NX3])-[O,S]",Thiocarbamate,functional_group,[]
@@ -151,7 +151,7 @@
 148,[N]#[#6]-[SX2$(*([#6])[#6])],Thiocyanate,functional_group,"[42, 98]"
 149,[#6](=O)[#16X2$(*([#6])[#6])],Thioester,functional_group,[36]
 150,"[#8,#16$(*([#6])[#6])][#6$(*[#16])]([#6,#1])([#6,#1])[#8H1,#16H1]",Thiohemiacetal,functional_group,[]
-151,[#6X3$(*(C)C)]=S,Thioketone,functional_group,[]
+151,[#6X3$(*(C)C)]=S,Thioketone,functional_group,[15]
 152,"[SH1,SH0-]",Thiol,functional_group,[]
 153,[#6H0R](=S)@[#7;X3;R],Thiolactam,functional_group,[]
 154,[#16H0R](=O)@[#8;X2;R],Thiolactone,functional_group,[]
