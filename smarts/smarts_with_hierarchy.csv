@@ -67,7 +67,7 @@
 64,[O!RX2H0$(*([#6])[#6])],Ether,functional_group,[]
 65,[#6H3X4]-[#6X4H2],Ethyl,functional_group,[93]
 66,[FX1],Fluorine,functional_group,[]
-67,"[NX3$(*[#1,#6])][CX3](=[N$(*[#1,#6])])[NX3$(*[#1,#6])]",Guanidine,functional_group,[]
+67,"[NX3$(*[#1,#6])][CX3](=N)[NX3$(*[#1,#6])]",Guanidine,functional_group,[]
 68,"[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8H1]",Hemiacetal,functional_group,[77]
 69,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Heptyl,functional_group,"[34, 65, 70, 93, 108, 120]"
 70,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Hexyl,functional_group,"[34, 65, 93, 108, 120]"
