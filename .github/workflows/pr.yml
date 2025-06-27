@@ -1,0 +1,63 @@
+name: Continuous Integration
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group : main
+  cancel-in-progress: true
+
+jobs:
+  test_pattern:
+    name: Python Unittest with Conda to test the correct matching of SMARTS patterns
+    uses: ./.github/workflows/pattern_tests.yml
+
+  deploy:
+    name: Deploy
+    needs: test_pattern
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_Host1: ${{ secrets.SSH_Host1 }}
+          SSH_Host2: ${{ secrets.SSH_Host2 }}
+          SSH_User: ${{ secrets.SSH_User }}
+          SSH_Port1: ${{ secrets.SSH_Port1 }}
+          SSH_Port2: ${{ secrets.SSH_Port2 }}
+
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/github
+          chmod 600 ~/.ssh/github
+          cat >>~/.ssh/config <<END
+          Host first_connection
+          User $SSH_User
+          Hostname $SSH_Host1
+          Port $SSH_Port
+          ForwardAgent yes
+          IdentityFile ~/.ssh/github
+          LogLevel ERROR
+          StrictHostKeyChecking no
+          
+          Host second_connection
+          User $SSH_User
+          Hostname $SSH_Host2
+          Port $SSH_Port2
+          ForwardAgent yes
+          ProxyCommand ssh -q -W %h:%p first_connection
+          IdentityFile ~/.ssh/github
+          LogLevel ERROR
+          StrictHostKeyChecking no
+          END
+      - name: Run deploy
+        run: |
+          ssh second_connection "cd /local/chemist/smart_chemist_backend/smart_chemist_backend && conda activate SMARTSChemist && export $(cat .env | xargs) && ./stop.sh && git pull && python add_patterns_to_db.py && ./start.sh"
+
+
+
+
+
+
+
