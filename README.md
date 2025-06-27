@@ -19,6 +19,14 @@ conda env create -f environment.yml
 conda activate SmartChemist
 ```
 
+Critical setting variables like the secret key and the debug flag are saved in an .env file. 
+You can create your own and source it using the following command.
+
+```bash
+export $(cat .env | xargs)
+```
+Currently, only the secret key and the debug variable are saved in the env file.
+
 Now, it is time to start setting up the webserver. This can be done in three steps. 
 1. Move into the directory and generate the database necessary for the webserver:
 ```bash
