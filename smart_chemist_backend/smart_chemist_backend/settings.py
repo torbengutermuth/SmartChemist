@@ -25,7 +25,14 @@ SECRET_KEY = os.environ["smartchemist_key"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+     '*hemist.smarts.plus',
+     'localhost',
+     '127.0.0.1',
+     '[::1]',
+ ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Celery settings
 CELERY_BROKER_URL = "redis://localhost:8012"
