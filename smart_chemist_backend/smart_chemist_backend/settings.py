@@ -81,10 +81,10 @@ DATABASES = {
     "dev": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3",},
     "prod": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.environ["db_name_chemist"],
-        "USER": os.environ["db_user_chemist"],
-        "PASSWORD": os.environ["db_pw_chemist"],
-        "PORT": os.environ["db_port_chemist"],
+        "NAME": os.getenv("db_name_chemist"),
+        "USER": os.getenv("db_user_chemist"),
+        "PASSWORD": os.getenv("db_pw_chemist"),
+        "PORT": os.getenv("db_port_chemist"),
     },
 }
 DATABASES['default'] = DATABASES['dev' if DEBUG else 'prod']
