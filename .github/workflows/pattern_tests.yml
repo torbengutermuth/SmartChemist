@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 5 * * 1'  # Every Monday at 5:00 AM UTC (7:00 AM CEST)
+  workflow_call:
 
 jobs:
   test:
