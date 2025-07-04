@@ -19,6 +19,15 @@ conda env create -f environment.yml
 conda activate SmartChemist
 ```
 
+Critical setting variables like the secret key and the debug flag are saved in an .env file. 
+You can create your own and source it using the following command.
+There is an environment template file (.env.template) given as an example in the smart_chemist_backend directory.
+
+```bash
+export $(cat .env | xargs)
+```
+Currently, only the secret key and the debug variable are saved in the env file for the testserver.
+
 Now, it is time to start setting up the webserver. This can be done in three steps. 
 1. Move into the directory and generate the database necessary for the webserver:
 ```bash
@@ -86,14 +95,4 @@ http://127.0.0.1:8000/static/smart_chemist_frontend/index.html
 And now everything should work like it does on the live server, maybe a bit slower :D 
 
 We use a postgres database in the live server, which is much faster than the sqlite version for the test server. 
-To use an existing postgres database, change the Databases dictionary in the settings.py file in the following way: 
-
- DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres_db_name',
-        'USER': 'postgres_db_user',
-        'PASSWORD': 'postgres_db_password',
-       'PORT': 'postgres_db_port',
-     }
- }
+To use an existing postgres database, change the env template file accordingly 
