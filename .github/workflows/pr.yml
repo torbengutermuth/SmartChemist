@@ -51,7 +51,6 @@ jobs:
           IdentityFile ~/.ssh/github
           LogLevel ERROR
           StrictHostKeyChecking no
-          END
           
           Host second_connection
           User $SSH_User
