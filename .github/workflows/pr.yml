@@ -65,6 +65,7 @@ jobs:
       - name: Run deploy
         run: |
           ssh second_connection 
+          touch github_was_here 
           cd /local/chemist/smart_chemist_backend/smart_chemist_backend 
           touch github_was_here 
           conda activate SMARTSChemist 
