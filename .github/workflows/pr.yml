@@ -64,15 +64,7 @@ jobs:
           END
       - name: Run deploy
         run: |
-          ssh second_connection
-          cd /local/chemist/smart_chemist_backend/smart_chemist_backend 
-          touch github_was_here 
-          conda activate SMARTSChemist 
-          export $(cat .env | xargs) 
-          ./stop.sh 
-          git pull origin main 
-          python add_patterns_to_db.py 
-          ./start.sh
+          ssh second_connection "echo 'successfully connected' && cd /local/chemist/smart_chemist_backend/smart_chemist_backend && touch github_was_here && conda activate SMARTSChemist && export $(cat .env | xargs) && ./stop.sh && git pull origin main && python add_patterns_to_db.py && ./start.sh"
 
 
 
