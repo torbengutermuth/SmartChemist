@@ -36,7 +36,7 @@ jobs:
           Host first_connection
           User $SSH_User
           Hostname $SSH_Host1
-          Port $SSH_Port
+          Port $SSH_Port1
           ForwardAgent yes
           IdentityFile ~/.ssh/github
           LogLevel ERROR
