@@ -1,4 +1,5 @@
 import io
+import logging
 import pathlib
 import string
 from io import StringIO
@@ -11,10 +12,56 @@ from rdkit import Chem
 from rdkit.Chem import AllChem, Draw
 from rdkit.Chem.Draw import rdMolDraw2D
 import random
+import requests
+import xml.etree.ElementTree as ET
+import pandas as pd
 
 from .models import AnnotatedPattern, PatternMatchingJob, PatternMatchingOutputModel
 from .mol_utils import read_sdf
 
+
+def convert_string_input_to_smiles(input_string):
+    """Parse an input request string."""
+    if Chem.MolFromSmiles(input_string) is not None:
+        return [input_string]
+    elif input_string.startswith("chembl:"):
+        # example: chembl:CHEMBL50894
+        chembl_id = input_string.removeprefix("chembl:")
+        url = f"https://www.ebi.ac.uk/chembl/api/data/molecule/{chembl_id}.json"
+        res = requests.get(url).json()
+        return [res["molecule_structures"]["canonical_smiles"]]
+    elif input_string.startswith("chebi"):
+        # example: chebi:138488
+        chebi_id = input_string.removeprefix("chebi:")
+        chebi_url = f"http://www.ebi.ac.uk/webservices/chebi/2.0/test/getCompleteEntity?chebiId={chebi_id}"
+        response = requests.get(chebi_url)
+        root = ET.fromstring(response.text)
+        return [root.find(".//{*}smiles").text]
+    elif input_string.startswith("pubchem"):
+        # example: pubchem:5005498
+        cid = input_string.removeprefix("pubchem:")
+        url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid}/JSON"
+        data = requests.get(url).json()
+        for property in data["PC_Compounds"][0]["props"]:
+            if property["urn"]["label"] == "SMILES" and property["urn"]["name"] == "Absolute":
+                return [property["value"]["sval"]]
+        return [""]
+    else:
+        for pattern in AnnotatedPattern.objects.all():
+            if input_string == pattern.trivial_name:
+                if pattern.group == "cyclic":
+                    return [f"{pattern.smarts} {pattern.trivial_name}", "CCCCCCC"]
+                else:
+                    testdata = pd.read_csv("/home/torben/arbeit/smart_chemist_backend/smarts/test_molecules_file.csv")
+                    matching_data = testdata.loc[testdata["pattern"] == pattern.trivial_name]
+                    if matching_data.shape[0] == 0:
+                        return [""]
+                    else:
+                        molecule_list = []
+                        for index,row in matching_data.iterrows():
+                            molecule_list.append(f"{row['smiles']} {row['comment']}")
+                        return molecule_list
+        return [""]
 
 def random_string_generator(str_size, allowed_chars):
     return "".join(random.choice(allowed_chars) for x in range(str_size))
@@ -171,6 +218,15 @@ class SmartChemist:
         }
 
     def handle_string_input(self, string_input: str, nof_molecules_allowed: int):
+        """
+        This function handles any string input, which can be one of three things
+        1. A smiles, which then has to be used to construct a rdkit molecule
+        2. An identifier, which has to be used to query the respective database
+        3. A name of a pattern, which then has to be reverse searched in our pattern/test collection
+        :param string_input:
+        :param nof_molecules_allowed:
+        :return:
+        """
         smiles_list = string_input.split(",")
         final_json = []
         n = 0
@@ -181,15 +237,18 @@ class SmartChemist:
             if n > nof_molecules_allowed:
                 number_skipped += 1
                 continue
-            mol = Chem.MolFromSmiles(x.strip())
-            if mol is None:
-                number_problems += 1
-                continue
-            n += 1
-            number_worked += 1
-            final_json.append(
-                self.mol_to_annotation_json(mol)
-            )
+            # Check if the respective string is a database identifier
+            converted_string = convert_string_input_to_smiles(x.strip())
+            for substring in converted_string:
+                mol = Chem.MolFromSmiles(substring.strip())
+                if mol is None or substring == "":
+                    number_problems += 1
+                    continue
+                n += 1
+                number_worked += 1
+                final_json.append(
+                    self.mol_to_annotation_json(mol)
+                )
         final_json.append(
             {"number_worked": number_worked, "number_skipped": number_skipped, "number_problems": number_problems})
         return final_json

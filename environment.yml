@@ -12,6 +12,7 @@ dependencies:
   - gunicorn=23.0.0
   - django=4.2.23
   - pip=25.1.1
+  - requests
   - pip:
     - redis==6.2.0
 

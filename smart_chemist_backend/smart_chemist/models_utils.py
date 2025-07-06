@@ -1,7 +1,9 @@
 from typing import Type
 
+
 from smart_chemist.models import PatternMatchingJob, PatternMatchingInputModel, PatternMatchingOutputModel
 import random
+
 
 def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) -> Type[PatternMatchingJob]:
     """Create a PatternMatchingJob from the request_data.
@@ -14,7 +16,7 @@ def make_pattern_matching_job(request_data, nof_molecules_allowed: int = 100) ->
     job.input_info = PatternMatchingInputModel(parent_pattern_matching_job=job)
 
     job.input_info.input_max_nof_molecules_allowed = nof_molecules_allowed
-    if "smiles" in request_data:
+    if "smiles" in request_data:  # TODO change this field to be "identifier"
         job.input_info.input_format = 'smiles_list'
         job.input_info.input_string = request_data["smiles"]
     elif "molecule_file" in request_data:

@@ -59,6 +59,16 @@ For a SMILES string:
 ```bash
 curl -vvv -d 'smiles=S(=O)(=O)(NC(=O)Nc1nc(OC)cc(OC)n1)Cc2c(cccc2)C(=O)OC' localhost:8000/api/names
 ```
+For a an identifier:
+```bash
+curl -vvv -d 'smiles=chebi:138488' localhost:8000/api/names
+curl -vvv -d 'smiles=chembl:CHEMBL50894' localhost:8000/api/names
+curl -vvv -d 'smiles=pubchem:5005498' localhost:8000/api/names
+
+Or to query examples for a pattern:
+```bash
+curl -vvv -d 'smiles=Aldimine' localhost:8000/api/names
+```
 For a file:
 ```bash
 curl -vvv -X POST -F molecule_file=@'/path/to/your/file/ligands.sdf' localhost:8000/api/names
