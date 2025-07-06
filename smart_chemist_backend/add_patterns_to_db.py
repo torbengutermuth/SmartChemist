@@ -15,6 +15,9 @@ for index, row in data.iterrows():
         mol = Chem.MolFromSmiles(row["SMARTS"])
     else:
         mol = Chem.MolFromSmarts(row["SMARTS"])
+    if mol is None:
+        print([x for x in row])
+        continue
     n_nitrogen = n_sulfur = n_oxygen = n_carbon = n_halogens = n_phospor =  0
     for atom in mol.GetAtoms():
         number = atom.GetAtomicNum()
