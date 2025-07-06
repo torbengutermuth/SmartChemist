@@ -15,10 +15,13 @@ import random
 import requests
 import xml.etree.ElementTree as ET
 import pandas as pd
+from pathlib import Path
 
 from .models import AnnotatedPattern, PatternMatchingJob, PatternMatchingOutputModel
 from .mol_utils import read_sdf
 
+HERE = Path(__file__).parent.resolve()
+SMARTS_TESTCASES_PATH = HERE.parent.parent.joinpath("smarts", "test_molecules_file.csv").resolve()
 
 def convert_string_input_to_smiles(input_string):
     """Parse an input request string."""
@@ -52,7 +55,7 @@ def convert_string_input_to_smiles(input_string):
                 if pattern.group == "cyclic":
                     return [f"{pattern.smarts} {pattern.trivial_name}", "CCCCCCC"]
                 else:
-                    testdata = pd.read_csv("/home/torben/arbeit/smart_chemist_backend/smarts/test_molecules_file.csv")
+                    testdata = pd.read_csv(SMARTS_TESTCASES_PATH)
                     matching_data = testdata.loc[testdata["pattern"] == pattern.trivial_name]
                     if matching_data.shape[0] == 0:
                         return [""]
