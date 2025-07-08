@@ -12,7 +12,7 @@ O=[#6X3H0$(*([#6])[#6])]**[#6X3H0$(*([#6])[#6])]=O,"1,4-Diketone",functional_gro
 O=[#6H1X3$(*[#6])]***[#6H1X3$(*[#6])]=O,"1,5-Dialdehyde",functional_group
 O=[#6X3H0$(*([#6])[#6])]***[#6H1]=O,"1,5-Diketoaldehyde",functional_group
 O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_group
-"[#8$(*([#6])[#6])][#6]([#6,#1])([#6,#1])[#8$(*([#6])[#6])]",Acetal,functional_group
+[#8$(*([#6])[#6])][#6X4][#8$(*([#6])[#6])],Acetal,functional_group
 [#6H3][#6]=O,Acetyl,functional_group
 [#6]#[#6],Acetylene,functional_group
 "[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl group,functional_group
@@ -23,7 +23,7 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [#7X3]-[OH0],Alkoxyamine,functional_group
 [#6]=[#6]=[#6],Allene,functional_group
 [*!R](=O)[#7X3],Amide,functional_group
-[#6!R](=N[OH1])([#7X3])[#7X3],Amide oxime,functional_group
+[#6!R](=N[OH1])[#7X3],Amide oxime,functional_group
 [*!R](=[NX2])[#7X3],Amidine,functional_group
 "[C$(*=N)](-,=N)-,=NN",Amidrazone,functional_group
 [NX4+]-[NX2-],Amine Imide,functional_group
