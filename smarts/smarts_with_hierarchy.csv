@@ -44,7 +44,7 @@
 41,[N]#[#6]-[O$(*([#6])[#6])],Cyanate,functional_group,"[42, 99]"
 42,[#7]#[CX2],Cyanide,functional_group,[99]
 43,[#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Decyl,functional_group,"[34, 65, 69, 70, 93, 104, 105, 108, 120]"
-44,"[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])-[NX3]-[#6,#15,#16;X3$(*[#6])+0](=[#8,#7,#15,#16;+0])",Diacylamine,functional_group,[]
+44,"[#6X3,#16X4,#15X4;$(*[#6])](=[#8,#7,#16])-[NX3]-[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Diacylamine,functional_group,[15]
 45,[#6]=[N+]=[N-X1],Diazo,functional_group,[]
 46,[#6](Br)Br,Dibromomethyl,functional_group,"[33, 49]"
 47,[#6](Cl)Cl,Dichloromethyl,functional_group,"[40, 49]"
