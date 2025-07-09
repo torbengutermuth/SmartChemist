@@ -5,7 +5,7 @@ import sys
 from PIL import Image
 
 
-smartscompare = Path("/local/gutermuth/naomi/bin/SMARTScompare_release")
+smartscompare = Path("/home/torben/arbeit/SMARTScompareViewer_1.2.0/SMARTScompare")
 
 citation_string = "# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND 4.0 license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.\n"
 
@@ -128,7 +128,7 @@ with open("smarts_with_hierarchy.csv", "w") as f:
     f.write(citation_string)
     full_df.to_csv(f)
 
-
+sys.exit()
 
 functional = pd.read_csv("functional_groups.csv", skiprows=1)
 for index,row in functional.iterrows():
@@ -146,7 +146,6 @@ for index,row in biologicals.iterrows():
     #print(name,smarts)
     #create_picture(smarts, output_path)
 
-sys.exit()
 cyclic = pd.read_csv("cyclic.csv", skiprows=1)
 
 existing_names = []
