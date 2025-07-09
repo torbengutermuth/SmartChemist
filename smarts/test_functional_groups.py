@@ -21,11 +21,27 @@ class FunctionGroupPatternTest(unittest.TestCase):
         self.assertEqual(len(list_of_indexes), 1)
         return list_of_indexes[0]
 
+    def get_indexes_of_pattern(self,pattern_name):
+        list_of_indexes = self.df_all_patterns.index[self.df_all_patterns['trivialname'] == pattern_name].tolist()
+        return list_of_indexes
+
     def assure_hierarchy_exists(self, index_more_specific, index_less_specific):
         row_of_interest = self.df_all_patterns.iloc[[index_more_specific]]
         hierarchy_list = ast.literal_eval(row_of_interest['Hierarchy'].to_list()[0])
         return int(index_less_specific) in hierarchy_list
 
+    def test_all_patterns_are_covered(self):
+        tested_pattern_names = set()
+        for index,row in self.df_molecules.iterrows():
+            tested_pattern_names.add(row["pattern"])
+        patterns_not_tested = []
+        for index,row in self.functionals.iterrows():
+            tested_pattern_name = row["trivialname"]
+            if tested_pattern_name not in tested_pattern_names:
+                patterns_not_tested.append(tested_pattern_name)
+        print(patterns_not_tested)
+        print(len(patterns_not_tested))
+        self.assertTrue(len(patterns_not_tested) == 0)
 
     def test_molecule_file(self):
         current_pattern_to_test = None
@@ -63,16 +79,29 @@ class FunctionGroupPatternTest(unittest.TestCase):
         index_ketone = self.get_index_of_pattern("Ketone")
         index_imine = self.get_index_of_pattern("Imine")
         index_iminium = self.get_index_of_pattern("Iminium")
-        index_quinoneimine = self.get_index_of_pattern("Quinoneimine")
+        index_quinoneimine1, index_quinoneimine2 = self.get_indexes_of_pattern("Quinoneimine")
+        index_aldoxime = self.get_index_of_pattern("Aldoxime")
+        index_ketoxime = self.get_index_of_pattern("Ketoxime")
+        index_oxime = self.get_index_of_pattern("Oxime")
+        index_amideoxime = self.get_index_of_pattern("Amide oxime")
+        index_amidine = self.get_index_of_pattern("Amidine")
+        index_carboxamidine = self.get_index_of_pattern("Carboxamidine")
+        index_diacylamine = self.get_index_of_pattern("Diacylamine")
+        self.assertTrue(self.assure_hierarchy_exists(index_carboxamidine, index_amidine))
+        self.assertTrue(self.assure_hierarchy_exists(index_amideoxime, index_oxime))
+        self.assertTrue(self.assure_hierarchy_exists(index_aldoxime, index_oxime))
+        self.assertTrue(self.assure_hierarchy_exists(index_ketoxime, index_oxime))
         self.assertTrue(self.assure_hierarchy_exists(index_ketone, index_carbonyl))
         self.assertTrue(self.assure_hierarchy_exists(index_carboxyl, index_carbonyl))
         self.assertTrue(self.assure_hierarchy_exists(index_aldehyde, index_carbonyl))
         self.assertTrue(self.assure_hierarchy_exists(index_ketone, index_acyl))
+        self.assertTrue(self.assure_hierarchy_exists(index_diacylamine, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_aldehyde, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_imine, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_iminium, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_acyl_halide, index_acyl))
-        self.assertTrue(self.assure_hierarchy_exists(index_quinoneimine, index_imine))
+        self.assertTrue(self.assure_hierarchy_exists(index_quinoneimine1, index_imine))
+        self.assertTrue(self.assure_hierarchy_exists(index_quinoneimine2, index_imine))
 
     def test_no_differences_between_pattern_files(self):
         pattern_dict = {}
