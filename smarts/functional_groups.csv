@@ -18,7 +18,8 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 "[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl group,functional_group
 "[F,Cl,Br,I]-[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl halide,functional_group
 [#6H1X3$(*[#6])]=O,Aldehyde,functional_group
-"[N$(*-[#6,#1])]=[CH1$(*[#6])]",Aldimine,functional_group
+"[#7X2$(*-[#6]),#7X2H1]=[CH1$(*[#6])]",Aldimine,functional_group
+"[#7X2$(*-[#6]),#7X2H1]=[CH0$(*([#6])[#6])]",Ketimine,functional_group
 [#6H1]=N-[O;H1],Aldoxime,functional_group
 [#7X3]-[OH0],Alkoxyamine,functional_group
 [#6]=[#6]=[#6],Allene,functional_group
@@ -80,7 +81,7 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 "[#8H1,#8H0-]",Hydroxy,functional_group
 "[#7X3]-[OH1,O-]",Hydroxylamine,functional_group
 "[#6,#15,#16](=[#8,#7,#15,#16])-[NX3R]-[#6,#15,#16](=[#8,#7,#15,#16])",Imide,functional_group
-[#6X3$(*[#6])]=[#7X2],Imine,functional_group
+"[#6X3$(*[#6])]=[#7X2$(*-[#6]),#7X2H1]",Imine,functional_group
 [#6X3$(*[#6])]=[#7X3],Iminium,functional_group
 [I],Iodine,functional_group
 [NX2]=[#6]=O,Isocyanate,functional_group
@@ -88,7 +89,7 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [#6H1]([#6H3])[#6H3],Isopropyl,functional_group
 [NX2]=[#6]=[SX1],Isothiocyanate,functional_group
 [#8$(*([#6])[#6])][#6X4$(*([#6])[#6])][#8$(*([#6])[#6])],Ketal,functional_group
-"[N$(*-[#6,#1])]=C=[C$(*([#6])[#6])]",Ketenimine,functional_group
+"[#7X2$(*-[#6]),#7X2H1]=C=[C$(*([#6])[#6])]",Ketenimine,functional_group
 [#6X3H0$(*([#6])[#6])]=O,Ketone,functional_group
 [#6H0]=N-[O;H1],Ketoxime,functional_group
 [#6H0R](=O)@[#7;X3;R],Lactam,functional_group
@@ -122,8 +123,8 @@ O=[PX4][#7X3],Phosphoramide,functional_group
 "[#7X3H2$(*[#6]),#7X4+H3$(*[#6])]",Primary Amine,functional_group
 [#6H3X4]-[#6X4H2]-[#6X4H2],Propyl,functional_group
 [NX4+H0],Quaternary Amine,functional_group
-"C1=CC(=[NX2,OX1])C=CC1=[NX2]",Quinoneimine,functional_group
-"[NX2,OX1]=C1C=CC=CC1=[NX2]",Quinoneimine,functional_group
+"C1=CC(=[NX2,OX1])C=CC1=[#7X2$(*-[#6]),#7X2H1]",Quinoneimine,functional_group
+"[NX2,OX1]=C1C=CC=CC1=[#7X2$(*-[#6]),#7X2H1]",Quinoneimine,functional_group
 [SX2][NX2]=O,S-nitrosothiol,functional_group
 "[#7X3H1$(*([#6])[#6]),#7X4+H2$(*([#6])[#6])]",Secondary Amine,functional_group
 [SeX2],Selenide,functional_group
@@ -139,7 +140,7 @@ O=[PX4][#7X3],Phosphoramide,functional_group
 [SX4!R](=O)(=O)[NX3],Sulfonamide,functional_group
 "[SX4](=O)(=O)-[O&H1,O&-,OX2]",Sulfonate,functional_group
 [SX4$(*[!1])](=O)(=O),Sulfone,functional_group
-[SX4$(*[!1])](=[NX2])=[NX2],Sulfonediimines,functional_group
+"[SX4$(*[!1])](=[#7X2$(*-[#6]),#7X2H1])=[#7X2$(*-[#6]),#7X2H1]",Sulfonediimines,functional_group
 [#16+X3$(*([!1])[!1])](-[O-]),Sulfoxide,functional_group
 [#16X3$(*([!1])[!1])](=O),Sulfoxide,functional_group
 [NX2]=[SX4]=O,Sulfoximide,functional_group
