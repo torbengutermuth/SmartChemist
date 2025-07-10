@@ -39,8 +39,6 @@ class FunctionGroupPatternTest(unittest.TestCase):
             tested_pattern_name = row["trivialname"]
             if tested_pattern_name not in tested_pattern_names:
                 patterns_not_tested.append(tested_pattern_name)
-        print(patterns_not_tested)
-        print(len(patterns_not_tested))
         self.assertTrue(len(patterns_not_tested) == 0)
 
     def test_molecule_file(self):
@@ -54,6 +52,7 @@ class FunctionGroupPatternTest(unittest.TestCase):
                 df = FunctionGroupPatternTest.functionals.query(f"trivialname == '{pattern}'")
                 if df.shape[0] == 0:
                     df = FunctionGroupPatternTest.biologicals.query(f"trivialname == '{pattern}'")
+                print(pattern)
                 self.assertGreaterEqual(df.shape[0], 1)
                 pattern_str = [x for x in df["SMARTS"]]
             for pattern in pattern_str:
@@ -78,6 +77,8 @@ class FunctionGroupPatternTest(unittest.TestCase):
         index_carboxyl = self.get_index_of_pattern("Carboxylic acid")
         index_ketone = self.get_index_of_pattern("Ketone")
         index_imine = self.get_index_of_pattern("Imine")
+        index_aldimine = self.get_index_of_pattern("Aldimine")
+        index_ketimine = self.get_index_of_pattern("Ketimine")
         index_iminium = self.get_index_of_pattern("Iminium")
         index_quinoneimine1, index_quinoneimine2 = self.get_indexes_of_pattern("Quinoneimine")
         index_aldoxime = self.get_index_of_pattern("Aldoxime")
@@ -102,6 +103,9 @@ class FunctionGroupPatternTest(unittest.TestCase):
         self.assertTrue(self.assure_hierarchy_exists(index_acyl_halide, index_acyl))
         self.assertTrue(self.assure_hierarchy_exists(index_quinoneimine1, index_imine))
         self.assertTrue(self.assure_hierarchy_exists(index_quinoneimine2, index_imine))
+        self.assertTrue(self.assure_hierarchy_exists(index_aldimine, index_imine))
+        self.assertTrue(self.assure_hierarchy_exists(index_ketimine, index_imine))
+
 
     def test_no_differences_between_pattern_files(self):
         pattern_dict = {}

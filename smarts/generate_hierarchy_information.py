@@ -5,12 +5,10 @@ import sys
 from PIL import Image
 
 
-smartscompare = Path("/home/torben/arbeit/SMARTScompareViewer_1.2.0/SMARTScompare")
-
+smartscompare = Path("/local/gutermuth/naomi/bin/SMARTScompare_release")
 citation_string = "# Usage of the SMARTS in these files is allowed only adhering to the CC-BY-ND 4.0 license in this directory from the University of Hamburg, ZBH - Center for Bioinformatics, Albert-Einstein-Ring 8-10, 22761 Germany Website https://uhh.de/amd.\n"
-
-
 smartsview_path = "/local/gutermuth/naomi/bin/SmartsViewer_release"
+BASE_PATH = Path(__file__).parent.resolve()
 
 def create_picture(queryString, imagePath):
     # start reaction viewer
@@ -50,19 +48,19 @@ def uppercase_trivialnames(pandas_dataframe):
         print(old_trivialname, new_trivialname)
         row["trivialname"] = new_trivialname
 
-biologicals = pd.read_csv("biologicals.csv", skiprows=1)
+biologicals = pd.read_csv(BASE_PATH / "biologicals.csv", skiprows=1)
 biologicals.sort_values(by=["trivialname", "SMARTS"], inplace=True)
 with open("biologicals.csv", "w") as f:
     f.write(citation_string)
     biologicals.to_csv(f, index=None)
 
-cyclic = pd.read_csv("cyclic.csv", skiprows=1)
+cyclic = pd.read_csv(BASE_PATH /  "cyclic.csv", skiprows=1)
 cyclic.sort_values(by=["trivialname", "SMARTS"], inplace=True)
 with open("cyclic.csv", "w") as f:
     f.write(citation_string)
     cyclic.to_csv(f, index=None)
 
-functional = pd.read_csv("functional_groups.csv", skiprows=1)
+functional = pd.read_csv(BASE_PATH / "functional_groups.csv", skiprows=1)
 functional.sort_values(by=["trivialname", "SMARTS"], inplace=True)
 with open("functional_groups.csv", "w") as f:
     f.write(citation_string)
@@ -76,8 +74,8 @@ full_df.reset_index(inplace=True,drop=True)
 #print(full_df.head())
 new_data = hierarchy_df["SMARTS"]
 #print(new_data.head())
-new_data.to_csv("hierarchy_smarts_automatic", index=None, header=None, sep="\t")
-todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", "hierarchy_smarts_automatic", "-M", "-1"]
+new_data.to_csv(BASE_PATH / "hierarchy_smarts_automatic", index=None, header=None, sep="\t")
+todo = [smartscompare.as_posix(), "-m", "subsetoffirst", "-f", f"{BASE_PATH / 'hierarchy_smarts_automatic'}", "-M", "-1"]
 process = subprocess.run(todo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 #print(process.stdout.decode())
 
@@ -107,6 +105,7 @@ subset_column = []
 subset_indexes = []
 #print(subset_data)
 for subset in subset_data:
+    print(subset)
     first_index = pattern_to_index[subset[0]]
     second_index = pattern_to_index[subset[1]]
     print(subset,first_index, second_index)
@@ -124,7 +123,7 @@ for i in range(full_df.shape[0]):
 
 full_df["Hierarchy"] = subset_column
 
-with open("smarts_with_hierarchy.csv", "w") as f:
+with open(BASE_PATH / "smarts_with_hierarchy.csv", "w") as f:
     f.write(citation_string)
     full_df.to_csv(f)
 
