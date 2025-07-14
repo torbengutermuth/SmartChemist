@@ -19,7 +19,6 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 "[F,Cl,Br,I]-[#6X3,#16X4,#15X4;$(*[#6])]=[#8,#7,#16]",Acyl halide,functional_group
 [#6H1X3$(*[#6])]=O,Aldehyde,functional_group
 "[#7X2$(*-[#6]),#7X2H1]=[CH1$(*[#6])]",Aldimine,functional_group
-"[#7X2$(*-[#6]),#7X2H1]=[CH0$(*([#6])[#6])]",Ketimine,functional_group
 [#6H1]=N-[O;H1],Aldoxime,functional_group
 [#7X3]-[OH0],Alkoxyamine,functional_group
 [#6]=[#6]=[#6],Allene,functional_group
@@ -90,10 +89,12 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [NX2]=[#6]=[SX1],Isothiocyanate,functional_group
 [#8$(*([#6])[#6])][#6X4$(*([#6])[#6])][#8$(*([#6])[#6])],Ketal,functional_group
 "[#7X2$(*-[#6]),#7X2H1]=C=[C$(*([#6])[#6])]",Ketenimine,functional_group
+"[#7X2$(*-[#6]),#7X2H1]=[CH0$(*([#6])[#6])]",Ketimine,functional_group
 [#6X3H0$(*([#6])[#6])]=O,Ketone,functional_group
 [#6H0]=N-[O;H1],Ketoxime,functional_group
 [#6H0R](=O)@[#7;X3;R],Lactam,functional_group
 [#6H0R](=O)@[#8;X2;R],Lactone,functional_group
+[CH3][OX2],Methoxy,functional_group
 [#6H3X4],Methyl,functional_group
 [#8$(*([#6])[#6])][#6X4][#16$(*([#6])[#6])],Monothioacetal,functional_group
 [#8$(*([#6])[#6])][#6X4$(*([#6])[#6])][#16$(*([#6])[#6])],Monothioketal,functional_group

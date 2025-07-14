@@ -52,7 +52,6 @@ class FunctionGroupPatternTest(unittest.TestCase):
                 df = FunctionGroupPatternTest.functionals.query(f"trivialname == '{pattern}'")
                 if df.shape[0] == 0:
                     df = FunctionGroupPatternTest.biologicals.query(f"trivialname == '{pattern}'")
-                print(pattern)
                 self.assertGreaterEqual(df.shape[0], 1)
                 pattern_str = [x for x in df["SMARTS"]]
             for pattern in pattern_str:
@@ -118,12 +117,15 @@ class FunctionGroupPatternTest(unittest.TestCase):
                     pattern_dict[pattern_name].append(pattern)
                 else:
                     pattern_dict[pattern_name] = [pattern]
+        patterns_are_found = {x:False for x in pattern_dict}
         for index,row in self.df_all_patterns.iterrows():
             pattern_name = row["trivialname"]
             pattern_smarts = row["SMARTS"]
+            patterns_are_found[pattern_name] = True
             self.assertTrue(pattern_name in pattern_dict, msg=f"Pattern {pattern_name} not found in pattern_dict.")
             self.assertTrue(pattern_smarts in pattern_dict[pattern_name], msg=f"Pattern smarts {pattern_smarts} not found in pattern_dict for pattern {pattern_name}.\n {pattern_dict[pattern_name]}")
-
+        for pattern in patterns_are_found:
+            self.assertTrue(patterns_are_found[pattern], msg=f"Pattern {pattern} not found in all smarts.")
 
 
 
