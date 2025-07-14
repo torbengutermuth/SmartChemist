@@ -36,7 +36,6 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [Br],Bromine,functional_group
 [#6H3X4]-[#6X4H2]-[#6X4H2]-[#6X4H2],Butyl,functional_group
 [#6](=O)([NX3])-O,Carbamate,functional_group
-[#6](=O)([NX3])-[O$(*[#6H2][#6H3])],Urethane,functional_group
 [#6]=O,Carbonyl,functional_group
 [#6!R](=O)[#7X3],Carboxamide,functional_group
 [#6!R](=[NX2])[#7X3],Carboxamidine,functional_group
