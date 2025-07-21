@@ -26,6 +26,7 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [#6!R](=N[OH1])[#7X3],Amide oxime,functional_group
 [*!R](=[NX2])[#7X3],Amidine,functional_group
 "[C$(*=N)](-,=N)-,=NN",Amidrazone,functional_group
+[#7]-!@[#6X4]-!@[#7],Aminal,functional_group
 [NX4+]-[NX2-],Amine Imide,functional_group
 [NX4+]-[CX3-],Amine Ylide,functional_group
 [#7+X4][#8-],Amine oxide,functional_group
@@ -69,6 +70,8 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [FX1],Fluorine,functional_group
 "[NX3$(*[#1,#6])][CX3](=N)[NX3$(*[#1,#6])]",Guanidine,functional_group
 [#8$(*([#6])[#6])][#6X4][#8H1],Hemiacetal,functional_group
+[#7]-!@[#6X4]-!@[#8H1],Hemiaminal,functional_group
+[#7]-!@[#6X4]-!@[#8H0X2],Hemiaminal ether,functional_group
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Heptyl,functional_group
 [#6H3X4][#6X4H2][#6X4H2][#6X4H2][#6X4H2][#6X4H2],Hexyl,functional_group
 "O=[#6,#15,#16][NX3][NX3]",Hydrazide,functional_group
