@@ -98,6 +98,12 @@ O=[#6X3H0$(*([#6])[#6])]***[#6X3H0$(*([#6])[#6])]=O,"1,5-Diketone",functional_gr
 [#6H0R](=O)@[#7;X3;R],Lactam,functional_group
 [#6H0R](=O)@[#8;X2;R],Lactone,functional_group
 [CH3][OX2],Methoxy,functional_group
+[CH3][CH2][OX2],Ethoxy,functional_group
+[CH3][CH2][CH2][OX2],Propoxy,functional_group
+[CH3][CH2][CH2][CH2][OX2],Butoxy,functional_group
+[CH3][CH2][CH2][CH2][CH2][OX2],Pentoxy,functional_group
+[CH3][CH2][CH2][CH2][CH2][CH2][OX2],Hexoxy,functional_group
+[CH3][CH2][CH2][CH2][CH2][CH2][CH2][OX2],Heptoxy,functional_group
 [#6H3X4],Methyl,functional_group
 [#8$(*([#6])[#6])][#6X4][#16$(*([#6])[#6])],Monothioacetal,functional_group
 [#8$(*([#6])[#6])][#6X4$(*([#6])[#6])][#16$(*([#6])[#6])],Monothioketal,functional_group
